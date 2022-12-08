@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06785784-9f51-4f20-9275-7c44e70b1aab" name="Changes" comment="atualizando interface">
+    <list default="true" id="06785784-9f51-4f20-9275-7c44e70b1aab" name="Changes" comment="Remoção do ramal e do contato na entidade Telefone para uma melhor legibilidade">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Telefone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Telefone.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/AgendaUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/AgendaUI.java" afterDir="false" />
@@ -58,7 +58,7 @@
       <option name="presentableId" value="Default" />
       <updated>1670455892738</updated>
       <workItem from="1670506744555" duration="1465000" />
-      <workItem from="1670508267386" duration="6450000" />
+      <workItem from="1670508267386" duration="8932000" />
     </task>
     <task id="LOCAL-00001" summary="atualizando interface">
       <created>1670513154880</created>
@@ -67,7 +67,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670513154880</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Remoção do ramal e do contato na entidade Telefone para uma melhor legibilidade">
+      <created>1670519980825</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1670519980825</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -86,6 +93,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="atualizando interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="atualizando interface" />
+    <MESSAGE value="Remoção do ramal e do contato na entidade Telefone para uma melhor legibilidade" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remoção do ramal e do contato na entidade Telefone para uma melhor legibilidade" />
   </component>
 </project>

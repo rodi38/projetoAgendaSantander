@@ -4,24 +4,18 @@ import enums.TipoTelefone;
 
 public class Telefone {
     private TipoTelefone tipoTelefone;
-    private String ddi;
     private String ddd;
     private String numero;
 
-    public Telefone(TipoTelefone tipoTelefone, String ddi, String ddd) {
+    public Telefone(TipoTelefone tipoTelefone, String ddd, String numero) {
         this.tipoTelefone = tipoTelefone;
-        this.ddi = ddi;
         this.ddd = ddd;
-
-    }
-
-    public Telefone(TipoTelefone tipo, String ddi, String ddd, String numero) {
-        this(tipo, ddi, ddd);
         this.numero = numero;
     }
 
+
     public Telefone(String ddd, String numero) {
-        this(TipoTelefone.Celular, "", ddd, numero);
+        this(TipoTelefone.Celular, ddd, numero);
     }
 
 
@@ -33,13 +27,6 @@ public class Telefone {
         this.tipoTelefone = tipoTelefone;
     }
 
-    public String getDdi() {
-        return ddi;
-    }
-
-    public void setDdi(String ddi) {
-        this.ddi = ddi;
-    }
 
     public String getDdd() {
         return ddd;
@@ -60,15 +47,8 @@ public class Telefone {
 
 
     public String getTelefoneCompleto() {
-        String telefone = "(" + ddd + ")" + " " + numero;
-        String telefoneCompleto = "";
-        if (!ddi.isBlank()) {
-            telefoneCompleto += "+" + ddi + telefone;
-        } else {
-            telefoneCompleto = telefone;
-        }
-        telefoneCompleto += " " + tipoTelefone;
-        return telefoneCompleto.trim().replaceAll("\\s{2,}", " ");
+        String telefone = tipoTelefone + " (" + ddd + ") "  + numero;
+        return telefone.trim().replaceAll("\\s{2,}", " ");
     }
 
 
@@ -77,7 +57,6 @@ public class Telefone {
     public String toString() {
         return "\nTelefone{" +
                 "tipoTelefone=" + tipoTelefone +
-                ", ddi='" + ddi + '\'' +
                 ", ddd='" + ddd + '\'' +
                 ", numero='" + numero + '\'' +
                 '}';

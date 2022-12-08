@@ -1,6 +1,7 @@
 package ui;
 
 import controller.Agenda;
+import enums.TipoTelefone;
 import model.Endereco;
 import model.Telefone;
 
@@ -45,6 +46,7 @@ public class AgendaUI {
     public List<Telefone> cadastraTelefones(){
         List<Telefone> telefones = new ArrayList<>();
         int telefoneQuantidade;
+        String ddd = "", numero = "";
         while (true){
             try {
                 System.out.println("Digite a quantidade de telefones");
@@ -56,10 +58,28 @@ public class AgendaUI {
         }
 
         for (int i = 0; i < telefoneQuantidade; i++) {
+            TipoTelefone[] tipos = TipoTelefone.values();
+            System.out.println("Digite o tipo de telefone: ");
+            for (int j = 0; j < tipos.length; j++) {
+                System.out.println(j+1 + " - " + tipos[i]);
+            }
+            int tipoTelefoneOpcao = scanner.nextInt()-1;
+            if (tipoTelefoneOpcao < 0 || tipoTelefoneOpcao >= tipos.length){
+                System.out.println("OPÇÃO INVALIDA");
+                i--;
+                continue;
+            }
+            TipoTelefone tipoTelefone = tipos[tipoTelefoneOpcao];
 
+            System.out.print("Digite o DDD: ");
+            ddd = scanner.nextLine();
+            System.out.print("Digite o numero: ");
+            numero = scanner.nextLine();
+            telefones.add(new Telefone(tipoTelefone, ddd, numero));
+            System.out.println(" Telefone Cadastrado");
             System.out.println();
-
-            //EM CONSTRUÇÃO
+            System.out.println("-----------------------------");
+            System.out.println();
         }
 
         return telefones;
