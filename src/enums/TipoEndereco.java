@@ -1,2 +1,5 @@
-package enums;public class TipoEndereco {
+package enums;
+
+public enum TipoEndereco {
+    Comercial, Residencial, Parente, Vizinho;
 }

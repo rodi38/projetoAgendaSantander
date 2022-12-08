@@ -1,2 +1,6 @@
-package enums;public class TipoTelefone {
+package enums;
+
+
+public enum TipoTelefone {
+    Comercial, Celular, Residencial;
 }

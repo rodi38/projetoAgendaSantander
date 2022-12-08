@@ -1,2 +1,5 @@
-package enums;public class TipoContato {
+package enums;
+
+public enum TipoContato {
+    Pessoal, Profissional;
 }

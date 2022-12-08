@@ -1,5 +1,9 @@
+import ui.AgendaUI;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        AgendaUI angendaUI = new AgendaUI();
+
+        angendaUI.menuInicial();
     }
 }
