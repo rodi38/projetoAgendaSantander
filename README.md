@@ -2,6 +2,8 @@
 
 
 #Projeto final do modulo de Programação Orientada a Objetos em java I
+<pre>
+Projeto feito por: Amanda Solsona, Chris Santos, Felipe Menezes, Marcele Montalvão, Rodrigo Rocha
 
 
-<h2>#Amanda Solsona, Felipe Menezes, Marcele Montalvão, Rodrigo Rocha</h1>
+
