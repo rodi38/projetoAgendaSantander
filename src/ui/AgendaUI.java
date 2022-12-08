@@ -4,6 +4,9 @@ import controller.Agenda;
 import model.Endereco;
 import model.Telefone;
 
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class AgendaUI {
@@ -39,15 +42,36 @@ public class AgendaUI {
     }
 
 
-    /*public Telefone cadastraTelefones(){
+    public List<Telefone> cadastraTelefones(){
+        List<Telefone> telefones = new ArrayList<>();
+        int telefoneQuantidade;
+        while (true){
+            try {
+                System.out.println("Digite a quantidade de telefones");
+                telefoneQuantidade = Math.abs(scanner.nextInt());
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Tipo errado, digite apenas um numero positivo");
+            }
+        }
 
+        for (int i = 0; i < telefoneQuantidade; i++) {
+
+            System.out.println();
+
+            //EM CONSTRUÇÃO
+        }
+
+        return telefones;
     }
+    /*
     public Endereco cadastraEndereco(){
 
     }*/
 
     public  void adicionar() {
         System.out.println("quer adicionar quantos telefones");
+
     }
 
 }

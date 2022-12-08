@@ -4,19 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06785784-9f51-4f20-9275-7c44e70b1aab" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/model/Contato.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Endereco.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Telefone.java" afterDir="false" />
+    <list default="true" id="06785784-9f51-4f20-9275-7c44e70b1aab" name="Changes" comment="atualizando interface">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Agenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Agenda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/enums/TipoContato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enums/TipoContato.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/enums/TipoEndereco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enums/TipoEndereco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/enums/TipoTelefone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enums/TipoTelefone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Contato.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Endereco.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Telefone.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Telefone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Telefone.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/AgendaUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/AgendaUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,8 +58,16 @@
       <option name="presentableId" value="Default" />
       <updated>1670455892738</updated>
       <workItem from="1670506744555" duration="1465000" />
-      <workItem from="1670508267386" duration="3449000" />
+      <workItem from="1670508267386" duration="6450000" />
     </task>
+    <task id="LOCAL-00001" summary="atualizando interface">
+      <created>1670513154880</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1670513154880</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -85,5 +83,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="atualizando interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="atualizando interface" />
   </component>
 </project>

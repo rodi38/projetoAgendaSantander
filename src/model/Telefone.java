@@ -7,24 +7,21 @@ public class Telefone {
     private String ddi;
     private String ddd;
     private String numero;
-    private String ramal;
-    private String contato;
 
-    public Telefone(TipoTelefone tipoTelefone, String ddi, String ddd, String ramal) {
+    public Telefone(TipoTelefone tipoTelefone, String ddi, String ddd) {
         this.tipoTelefone = tipoTelefone;
         this.ddi = ddi;
         this.ddd = ddd;
-        this.ramal = ramal;
+
     }
 
-    public Telefone(TipoTelefone tipo, String ddi, String ddd, String numero, String ramal, String contato) {
-        this(tipo, ddi, ddd, ramal);
+    public Telefone(TipoTelefone tipo, String ddi, String ddd, String numero) {
+        this(tipo, ddi, ddd);
         this.numero = numero;
-        this.contato = contato;
     }
 
-    public Telefone(String ddd, String numero, String contato) {
-        this(TipoTelefone.Celular, "", ddd, numero, "", contato);
+    public Telefone(String ddd, String numero) {
+        this(TipoTelefone.Celular, "", ddd, numero);
     }
 
 
@@ -60,17 +57,7 @@ public class Telefone {
         this.numero = numero;
     }
 
-    public String getRamal() {
-        return ramal;
-    }
 
-    public void setRamal(String ramal) {
-        this.ramal = ramal;
-    }
-
-    public String getContato() {
-        return contato;
-    }
 
     public String getTelefoneCompleto() {
         String telefone = "(" + ddd + ")" + " " + numero;
@@ -80,17 +67,10 @@ public class Telefone {
         } else {
             telefoneCompleto = telefone;
         }
-        if (!ramal.isBlank()) {
-            telefoneCompleto += ramal;
-        }
         telefoneCompleto += " " + tipoTelefone;
         return telefoneCompleto.trim().replaceAll("\\s{2,}", " ");
     }
 
-
-    public void setContato(String contato) {
-        this.contato = contato;
-    }
 
 
     @Override
@@ -100,8 +80,6 @@ public class Telefone {
                 ", ddi='" + ddi + '\'' +
                 ", ddd='" + ddd + '\'' +
                 ", numero='" + numero + '\'' +
-                ", ramal='" + ramal + '\'' +
-                ", contato='" + contato + '\'' +
                 '}';
     }
 }
