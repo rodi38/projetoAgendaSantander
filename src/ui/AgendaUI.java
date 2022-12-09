@@ -1,7 +1,9 @@
 package ui;
 
 import controller.Agenda;
+import enums.TipoContato;
 import enums.TipoTelefone;
+import model.Contato;
 import model.Endereco;
 import model.Telefone;
 
@@ -25,7 +27,7 @@ public class AgendaUI {
         String opcao = scanner.nextLine();
         switch (opcao) {
             case "1" -> {
-                System.out.println("adiciona");
+                adicionarNovoContato();
             }
             case "2" -> {
                 System.out.println("Pesquisar");
@@ -88,6 +90,60 @@ public class AgendaUI {
     public Endereco cadastraEndereco(){
 
     }*/
+
+    private void adicionarNovoContato() {
+
+        System.out.println("Qual o tipo de contato: ");
+        for (TipoContato tipoContato : TipoContato.values()) {
+            System.out.println(tipoContato);
+        }
+
+        int tipo = scanner.nextInt();
+        TipoContato tipoContato = TipoContato.getByValor(tipo);
+
+        System.out.println("Digite o nome do contato: ");
+        String nome = scanner.nextLine();
+        System.out.println("Digite o sobrenome do contato: ");
+        String sobrenome = scanner.nextLine();
+
+        Contato novoContato = new Contato(nome, sobrenome);
+        novoContato.setTipo(tipoContato);
+
+        System.out.println("Digite o ddd do telefone: ");
+        String ddd = scanner.nextLine();
+        System.out.println("Digite o telefone: ");
+        String numero = scanner.nextLine();
+
+        Telefone novoTelefone = new Telefone(ddd, numero);
+        novoContato.addTelefone(novoTelefone);
+
+        System.out.println("Digite o cep: ");
+        String cep = scanner.nextLine();
+        System.out.println("Digite o logradouro: ");
+        String logradouro = scanner.nextLine();
+        System.out.println("Digite o numero: ");
+        String numeroLogradouro = scanner.nextLine();
+        System.out.println("Digite o bairro: ");
+        String bairro = scanner.nextLine();
+        System.out.println("Digite a cidade: ");
+        String cidade = scanner.nextLine();
+        System.out.println("Digite o estado: ");
+        String estado = scanner.nextLine();
+
+        Endereco endereco = new Endereco();
+        endereco.setCep(cep);
+        endereco.setLogradouro(logradouro);
+        endereco.setNumero(numeroLogradouro);
+        endereco.setBairro(bairro);
+        endereco.setCidade(cidade);
+        endereco.setEstado(estado);
+
+        novoContato.addEndereco(endereco);
+
+        agenda.adicionar(novoContato);
+
+        System.out.println("Contato adicionado");
+    }
 
     public  void adicionar() {
         System.out.println("quer adicionar quantos telefones");

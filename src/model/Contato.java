@@ -14,6 +14,13 @@ public class Contato {
     private ArrayList<Endereco> enderecos;
     private ArrayList<Telefone> telefones;
 
+    public Contato(String nome, String sobreNome) {
+        this.nome = nome;
+        this.sobreNome = sobreNome;
+        this.enderecos = new ArrayList<>();
+        this.telefones = new ArrayList<>();
+    }
+
     public Contato(String nome, String sobreNome, String email,
                    TipoContato tipoContato) {
         this(nome, tipoContato);
@@ -42,12 +49,20 @@ public class Contato {
         this.enderecos = enderecos;
     }
 
+    public void addEndereco(Endereco endereco) {
+        this.enderecos.add(endereco);
+    }
+
     public List<Telefone> getTelefones() {
         return telefones;
     }
 
     public void setTelefones(ArrayList<Telefone> telefones) {
         this.telefones = telefones;
+    }
+
+    public void addTelefone(Telefone telefone) {
+        this.telefones.add(telefone);
     }
 
     public String getEmail() {
