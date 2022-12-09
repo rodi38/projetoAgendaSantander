@@ -5,57 +5,44 @@ import enums.TipoEndereco;
 import java.util.List;
 
 public class Endereco {
-    private TipoEndereco tipo;
-    private String pais;
+    private TipoEndereco tipoEndereco;
     private String cep;
     private String logradouro;
     private String cidade;
-    private String bairro;
-    private String complemento;
+    private String estado;
+    private String numero;
 
 
-    public Endereco(String pais, String cep, String cidade, String bairro, String complemento) {
-        this.pais = pais;
+    public Endereco (TipoEndereco tipoEndereco, String cep, String logradouro, String numero, String cidade, String estado) {
+        this.tipoEndereco = tipoEndereco;
         this.cep = cep;
+        this.logradouro = logradouro;
+        this.numero = numero;
         this.cidade = cidade;
-        this.bairro = bairro;
-        this.complemento = complemento;
-        this.logradouro = "";
-        this.tipo = TipoEndereco.Residencial;
-
+        this.estado = estado;
     }
 
-    public Endereco(TipoEndereco tipo, String logradouro) {
-        this("", "", "", "", "");
-        this.tipo = tipo;
-        this.logradouro = logradouro;
+    public Endereco(TipoEndereco tipo, String logradouro, String numero) {
+        this(tipo,"",logradouro,numero,"","");
     }
 
     public String getEnderecoCompleto() {
-        StringBuilder endereco = new StringBuilder(tipo.toString() + " " + logradouro);
-        List<String> atributos = List.of(pais,cep,cidade,bairro,complemento);
+        StringBuilder endereco = new StringBuilder(tipoEndereco.toString() + " " + logradouro);
+        List<String> atributos = List.of(numero,cidade, estado, cep);
         for (int i = 0; i < atributos.size() ; i++) {
             if (!atributos.get(i).isBlank()){
-                endereco.append(" ").append(atributos.get(i));
+                endereco.append(" | ").append(atributos.get(i));
             }
         }
         return endereco.toString().trim().replaceAll("\\s{2,}", " ");
     }
 
-    public TipoEndereco getTipo() {
-        return tipo;
+    public TipoEndereco getTipoEndereco() {
+        return tipoEndereco;
     }
 
-    public void setTipo(TipoEndereco tipo) {
-        this.tipo = tipo;
-    }
-
-    public String getPais() {
-        return pais;
-    }
-
-    public void setPais(String pais) {
-        this.pais = pais;
+    public void setTipoEndereco(TipoEndereco tipoEndereco) {
+        this.tipoEndereco = tipoEndereco;
     }
 
     public String getCep() {
@@ -84,32 +71,31 @@ public class Endereco {
         this.cidade = cidade;
     }
 
-    public String getBairro() {
-        return bairro;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
-    public String getComplemento() {
-        return complemento;
+    public String getNumero() {
+        return numero;
     }
 
-    public void setComplemento(String complemento) {
-        this.complemento = complemento;
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 
     @Override
     public String toString() {
         return "\nEndereco{" +
-                " tipoEndereco=" + tipo +
-                ", pais='" + pais + '\'' +
+                " tipoEndereco=" + tipoEndereco +
                 ", cep='" + cep + '\'' +
                 ", logradouro='" + logradouro + '\'' +
+                ", numero='" + numero + '\'' +
                 ", cidade='" + cidade + '\'' +
-                ", bairro='" + bairro + '\'' +
-                ", complemento='" + complemento + '\'' +
+                ", estado='" + estado + '\'' +
                 '}';
     }
 }

@@ -84,10 +84,10 @@ public class AgendaUI {
 
         return telefones;
     }
-    /*
+
     public Endereco cadastraEndereco(){
 
-    }*/
+    }
 
     public  void adicionar() {
         System.out.println("quer adicionar quantos telefones");

@@ -9,26 +9,24 @@ import java.util.Objects;
 public class Contato {
     private String nome;
     private String sobreNome;
-    private String email;
-    private TipoContato tipo;
+    private TipoContato tipoContato;
     private ArrayList<Endereco> enderecos;
     private ArrayList<Telefone> telefones;
 
-    public Contato(String nome, String sobreNome, String email,
-                   TipoContato tipoContato) {
+    public Contato(TipoContato tipoContato, String nome, String sobreNome) {
         this(nome, tipoContato);
         this.sobreNome = sobreNome;
-        this.email = email;
+
     }
 
     public Contato(String nome, TipoContato tipoContato) {
         this.nome = nome;
-        this.tipo = tipoContato;
+        this.tipoContato = tipoContato;
     }
 
-    public Contato(String nome, String sobreNome, String email,
-                   TipoContato tipoContato, ArrayList<Endereco> enderecos, ArrayList<Telefone> telefones) {
-        this(nome, sobreNome, email, tipoContato);
+    public Contato(String nome, String sobreNome, TipoContato tipoContato, ArrayList<Endereco> enderecos,
+                   ArrayList<Telefone> telefones) {
+        this(tipoContato, nome, sobreNome);
         this.enderecos = enderecos;
         this.telefones = telefones;
     }
@@ -50,14 +48,6 @@ public class Contato {
         this.telefones = telefones;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getNome() {
         return this.nome;
     }
@@ -66,8 +56,8 @@ public class Contato {
         return this.sobreNome;
     }
 
-    public TipoContato getTipo() {
-        return this.tipo;
+    public TipoContato getTipoContato() {
+        return this.tipoContato;
     }
 
     public void setNome(String nome) {
@@ -78,8 +68,8 @@ public class Contato {
         this.sobreNome = sobreNome;
     }
 
-    public void setTipo(TipoContato tipo) {
-        this.tipo = tipo;
+    public void setTipoContato(TipoContato tipoContato) {
+        this.tipoContato = tipoContato;
     }
 
     @Override
@@ -87,12 +77,12 @@ public class Contato {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Contato contato = (Contato) o;
-        return Objects.equals(nome, contato.nome) && Objects.equals(sobreNome, contato.sobreNome) && tipo == contato.tipo;
+        return Objects.equals(nome, contato.nome) && Objects.equals(sobreNome, contato.sobreNome) && tipoContato == contato.tipoContato;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nome, sobreNome, tipo);
+        return Objects.hash(nome, sobreNome, tipoContato);
     }
 
     public String getNomeCompleto() {
@@ -106,10 +96,9 @@ public class Contato {
     @Override
     public String toString() {
         return "Contato{" +
-                " nome='" + nome + '\'' +
+                " Tipo de contato = " + tipoContato +
+                ", nome='" + nome + '\'' +
                 ", sobreNome='" + sobreNome + '\'' +
-                ", email='" + email + '\'' +
-                ", tipoContato=" + tipo +
                 ", endereco=" + enderecos +
                 ", telefone=" + telefones +
                 '}';

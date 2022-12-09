@@ -44,8 +44,6 @@ public class Telefone {
         this.numero = numero;
     }
 
-
-
     public String getTelefoneCompleto() {
         String telefone = tipoTelefone + " (" + ddd + ") "  + numero;
         return telefone.trim().replaceAll("\\s{2,}", " ");
