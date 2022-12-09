@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06785784-9f51-4f20-9275-7c44e70b1aab" name="Changes" comment="Remoção do ddi e ajuste na adição de telefone na AgendaUI">
+    <list default="true" id="06785784-9f51-4f20-9275-7c44e70b1aab" name="Changes" comment="atualização dos atributos para uma melhor legibilidade e uma implementação da função cadastraEnderecos na AgendaUI">
+      <change afterPath="$PROJECT_DIR$/src/util/ConsoleUIHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Contato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Contato.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Endereco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Endereco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Telefone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Telefone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/AgendaUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/AgendaUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +59,7 @@
       <workItem from="1670506744555" duration="1465000" />
       <workItem from="1670508267386" duration="9411000" />
       <workItem from="1670523122567" duration="42000" />
-      <workItem from="1670621572882" duration="1018000" />
+      <workItem from="1670621572882" duration="1253000" />
     </task>
     <task id="LOCAL-00001" summary="atualizando interface">
       <created>1670513154880</created>
@@ -85,7 +82,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670522499784</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="atualização dos atributos para uma melhor legibilidade e uma implementação da função cadastraEnderecos na AgendaUI">
+      <created>1670622763689</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1670622763689</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,21 +110,7 @@
     <MESSAGE value="atualizando interface" />
     <MESSAGE value="Remoção do ramal e do contato na entidade Telefone para uma melhor legibilidade" />
     <MESSAGE value="Remoção do ddi e ajuste na adição de telefone na AgendaUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remoção do ddi e ajuste na adição de telefone na AgendaUI" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/ui/AgendaUI.java</url>
-          <line>45</line>
-          <properties class="ui.AgendaUI" method="cadastraTelefones">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="atualização dos atributos para uma melhor legibilidade e uma implementação da função cadastraEnderecos na AgendaUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="atualização dos atributos para uma melhor legibilidade e uma implementação da função cadastraEnderecos na AgendaUI" />
   </component>
 </project>
