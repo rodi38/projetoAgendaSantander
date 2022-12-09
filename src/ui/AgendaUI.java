@@ -1,7 +1,10 @@
 package ui;
 
 import controller.Agenda;
+import enums.TipoContato;
+import enums.TipoEndereco;
 import enums.TipoTelefone;
+import model.Contato;
 import model.Endereco;
 import model.Telefone;
 
@@ -25,7 +28,8 @@ public class AgendaUI {
         String opcao = scanner.nextLine();
         switch (opcao) {
             case "1" -> {
-                System.out.println("adiciona");
+                adicionar();
+                System.out.println(agenda.listar(0,1));
             }
             case "2" -> {
                 System.out.println("Pesquisar");
@@ -85,12 +89,61 @@ public class AgendaUI {
         return telefones;
     }
 
-    public Endereco cadastraEndereco(){
+    public List<Endereco> cadastraEnderecos(){
+        List<Endereco> enderecos = new ArrayList<>();
+        int quantidadeEnderecos;
+        String cep = "", logradouro = "", numero="", cidade = "", estado = "";
+        while (true){
+            try {
+                System.out.println("Digite a quantidade de Enderecos do contato");
+                quantidadeEnderecos = Math.abs(scanner.nextInt());
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Tipo errado, digite apenas um numero positivo");
+            }
+        }
 
+        for (int i = 0; i < quantidadeEnderecos; i++) {
+            TipoEndereco[] tipoEnderecos = TipoEndereco.values();
+            System.out.println("Digite o tipo de Endereco de acordo com o indice: ");
+            for (int j = 0; j < tipoEnderecos.length; j++) {
+                System.out.println(j+1 + " - " + tipoEnderecos[i]);
+            }
+            int tipoEnderecoOpcao = scanner.nextInt()-1;
+            if (tipoEnderecoOpcao < 0 || tipoEnderecoOpcao >= tipoEnderecos.length){
+                System.out.println("OPÇÃO INVALIDA");
+                i--;
+                continue;
+            }
+            TipoEndereco tipoEndereco = tipoEnderecos[tipoEnderecoOpcao];
+            System.out.print("Digite o cep: ");
+            cep = scanner.nextLine();
+            System.out.print("Digite o logradouro: ");
+            logradouro = scanner.nextLine();
+            System.out.print("Digite o numero da casa: ");
+            numero = scanner.nextLine();
+            System.out.print("Digite o nome da cidade: ");
+            cidade = scanner.nextLine();
+            System.out.print("Digite o nome do estado: ");
+            estado = scanner.nextLine();
+            enderecos.add(new Endereco(tipoEndereco, cep, logradouro, numero, cidade,estado));
+            System.out.println(" Endereco Cadastrado");
+            System.out.println();
+            System.out.println("-----------------------------");
+            System.out.println();
+        }
+
+        return enderecos;
     }
 
     public  void adicionar() {
-        System.out.println("quer adicionar quantos telefones");
+        System.out.println("Digite o nome do contato");
+        String nome = scanner.nextLine();
+        System.out.println("Digite o sobrenome do contato");
+        String sobrenome = scanner.nextLine();
+
+        Contato contato = new Contato(TipoContato.Profissional, nome, sobrenome);
+        agenda.adicionar(contato);
 
     }
 
