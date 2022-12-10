@@ -11,6 +11,10 @@ public class Agenda {
         this.contatos = new ArrayList<>();
     }
 
+    public List<Contato> getContatos(){
+        return this.contatos;
+    }
+
     public void adicionar(Contato contato) {
         contatos.add(contato);
     }
@@ -61,4 +65,6 @@ public class Agenda {
         }
         return contatoesEncontrados;
     }
+
+
 }

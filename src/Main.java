@@ -5,5 +5,6 @@ public class Main {
         AgendaUI angendaUI = new AgendaUI();
         System.out.println("teste bro");
         angendaUI.menuInicial();
+
     }
 }
