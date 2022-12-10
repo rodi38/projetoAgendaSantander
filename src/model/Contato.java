@@ -10,23 +10,22 @@ public class Contato {
     private String nome;
     private String sobreNome;
     private TipoContato tipoContato;
-    private ArrayList<Endereco> enderecos;
-    private ArrayList<Telefone> telefones;
+    private List<Endereco> enderecos;
+    private List<Telefone> telefones;
 
-    public Contato(TipoContato tipoContato, String nome, String sobreNome) {
-        this(nome, tipoContato);
-        this.sobreNome = sobreNome;
-
-    }
-
-    public Contato(String nome, TipoContato tipoContato) {
+    public Contato(String nome, String sobreNome) {
+        this.tipoContato = TipoContato.Pessoal;
         this.nome = nome;
-        this.tipoContato = tipoContato;
+        this.sobreNome = sobreNome;
     }
 
-    public Contato(String nome, String sobreNome, TipoContato tipoContato, ArrayList<Endereco> enderecos,
-                   ArrayList<Telefone> telefones) {
-        this(tipoContato, nome, sobreNome);
+
+
+    public Contato(TipoContato tipoContato, String nome, String sobreNome, List<Endereco> enderecos,
+                   List<Telefone> telefones) {
+        this.tipoContato = tipoContato;
+        this.nome = nome;
+        this.sobreNome = sobreNome;
         this.enderecos = enderecos;
         this.telefones = telefones;
     }

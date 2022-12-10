@@ -5,5 +5,6 @@ public class Main {
         AgendaUI angendaUI = new AgendaUI();
 
         angendaUI.menuInicial();
+
     }
 }

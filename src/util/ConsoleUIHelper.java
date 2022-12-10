@@ -1,5 +1,6 @@
 package util;
 
+import javax.swing.*;
 import java.math.BigDecimal;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -30,13 +31,13 @@ public class ConsoleUIHelper {
     public static int askChooseOption(String message, String... options) {
         System.out.printf("%s%n# : ", message);
         for (int i = 0; i < options.length; i++) {
-            System.out.printf("%d - %s%n# : ", i, options[i]);
+            System.out.printf("%d - %s%n# : ", i+1, options[i]);
         }
         Scanner sc = new Scanner(System.in);
         int choose;
         do {
             try {
-                choose = sc.nextInt();
+                choose = sc.nextInt()-1;
             } catch (InputMismatchException e) {
                 choose = -9;
             }
