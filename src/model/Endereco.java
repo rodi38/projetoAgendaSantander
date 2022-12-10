@@ -89,13 +89,11 @@ public class Endereco {
 
     @Override
     public String toString() {
-        return "\nEndereco{" +
-                " tipoEndereco=" + tipoEndereco +
-                ", cep='" + cep + '\'' +
-                ", logradouro='" + logradouro + '\'' +
-                ", numero='" + numero + '\'' +
-                ", cidade='" + cidade + '\'' +
-                ", estado='" + estado + '\'' +
-                '}';
+        return " Tipo de Endereco: " + tipoEndereco +
+                " | Cep: " + cep +
+                " | Logradouro: " + logradouro +
+                " | Numero: " + numero +
+                " | Cidade: " + cidade +
+                " | Estado: " + estado ;
     }
 }

@@ -94,13 +94,12 @@ public class Contato {
 
     @Override
     public String toString() {
-        return "Contato{" +
-                " Tipo de contato = " + tipoContato +
-                ", nome='" + nome + '\'' +
-                ", sobreNome='" + sobreNome + '\'' +
-                ", endereco=" + enderecos +
-                ", telefone=" + telefones +
-                '}';
+        return "Contato: \t" +
+                "Tipo de contato: " + tipoContato +
+                " | Nome: " + nome +
+                " | Sobre Nome: " + sobreNome +
+                " | Enderecos: " + enderecos +
+                " | Telefones: " + telefones;
     }
 
 }

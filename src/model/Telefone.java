@@ -53,10 +53,8 @@ public class Telefone {
 
     @Override
     public String toString() {
-        return "\nTelefone{" +
-                "tipoTelefone=" + tipoTelefone +
-                ", ddd='" + ddd + '\'' +
-                ", numero='" + numero + '\'' +
-                '}';
+        return "Tipo do Telefone: " + tipoTelefone +
+                " | DDD: " + ddd +
+                " | Numero: " + numero;
     }
 }
