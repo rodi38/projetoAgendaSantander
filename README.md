@@ -9,13 +9,13 @@ Projeto feito por: Amanda Solsona, Chris Santos, Felipe Menezes, Marcele Montalv
 
 
 Um contato pode possuir múltiplos endereços.  IMPLEMENTADO <br/>
-O armazenamento de telefones deve permitir incluir separadamente as informações de DDD e número. A SER IMPLEMENTADO - (RODRIGO)  <br/>
+O armazenamento de telefones deve permitir incluir separadamente as informações de DDD e número.  A SER COMPLETO  <br/>
 O armazenamento de endereços deve permitir incluir separamente as informações de CEP, logradouro, número, cidade e estado. A SER IMPLEMENTADO - (RODRIGO)  <br/>
  
 O sistema deve permitir a interação com o usuário com as seguintes ações:  <br/>
  
-    a. Adicionar um contato e seus dados; PARCIALMENTE COMPLETO (RODRIGO)  <br/>
-    b. Listar todos os contatos da agenda; PARCIALMENTE COMPLETO - (MARCELE)  <br/>
+    a. Adicionar um contato e seus dados COMPLETO (RODRIGO) [ X ]  10/12/22 <br/>
+    b. Listar todos os contatos da agenda PARCIALMENTE COMPLETO - (MARCELE)  <br/>
     c. Buscar um contato de acordo com uma palavra chave (Utilize os dados de nome, sobrenome para realizar a busca) PRECISA SER IMPLEMENTADO - (RODRIGO)  <br/>
     d. Remover um contato da agenda; PRECISA SER IMPLEMENTADO -  (FELIPE) <br/>
     e. Remover todos os contatos da agenda; PRECISA SER IMPLEMENTADO - (AMANDA) <br/>
