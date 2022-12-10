@@ -40,7 +40,7 @@ public class AgendaUI {
                     System.out.println("Pesquisar");
                 }
                 case "3" -> {
-                    System.out.println("Excluir");
+                    excluirContato();
                 }
                 case "4" -> {
                     System.out.println("Lista");
@@ -57,7 +57,25 @@ public class AgendaUI {
         }
 
     }
-
+    public void excluirContato(){
+        Contato contato = null;
+        System.out.println("Informe o nome do contato para remover.");
+        String nome = scanner.nextLine();
+        List<Contato> contatosAchados = agenda.pesquisarNome(nome);
+        for (int i = 0; i < contatosAchados.size(); i++) {
+            System.out.println("ID: " + (i+1) + " " + contatosAchados.get(i) + "\n");
+           System.out.println("Digite o ID do contato que deseja remover:");
+            int id = scanner.nextInt()-1;
+            if (id == i) {
+                System.out.println("Tem certeza que deseja remover este contato?\n" + contatosAchados.get(i) + "\n (1) para sim.\n (2) para voltar ao menu principal.");
+                int opcao = scanner.nextInt();
+                if (opcao == 1) {
+                    contato = contatosAchados.remove(i);
+                }
+            }
+        }
+        agenda.excluir(contato);
+    }
 
     public List<Telefone> cadastraTelefones(){
         List<Telefone> telefones = new ArrayList<>();

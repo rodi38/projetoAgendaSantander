@@ -19,9 +19,7 @@ public class Agenda {
     public void adicionar(Contato contato) {
         contatos.add(contato);
     }
-
-
-    public void excluir(Contato contato) {
+    public void excluir(Contato contato){
         contatos.remove(contato);
     }
 
@@ -113,21 +111,10 @@ public class Agenda {
                 dados.append("\nContato sem endereços!");
             }
             dados.append("\n").append("#".repeat(cont));
-
-
+            dados.append("\n");
         }
         return dados.toString();
     }
 
 }
 
-/*
-    Contato: Rodrigo Rocha , Tipo Residencial
-    Endereços: asdasduifuinwef 123120319023 | 1293129312 qadiqwndi |
-    Telefones: 92983923 9012931293 || 9239123912 | 2389129831
-
-
-
-    Tipo de contato: Residencial | Nome: Rodrigo | SobreNome: Rocha | Endereços: 28949190 3981239 29941 (+2) |
-     Telefones: (85) 998242
- */
