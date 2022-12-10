@@ -44,6 +44,7 @@ public class AgendaUI {
                 }
                 case "4" -> {
                     System.out.println("Lista");
+                    listarAgenda();
                 }
                 case "5" ->{
                     System.out.println("Saindo...");
@@ -80,6 +81,7 @@ public class AgendaUI {
                 System.out.println(j+1 + " - " + tipos[j]);
             }
             int tipoTelefoneOpcao = scanner.nextInt()-1;
+            scanner.nextLine();
             if (tipoTelefoneOpcao < 0 || tipoTelefoneOpcao >= tipos.length){
                 System.out.println("OPÇÃO INVALIDA");
                 i--;
@@ -123,6 +125,8 @@ public class AgendaUI {
                 System.out.println(j+1 + " - " + tipoEnderecos[j]);
             }
             int tipoEnderecoOpcao = scanner.nextInt()-1;
+            scanner.nextLine();
+
             if (tipoEnderecoOpcao < 0 || tipoEnderecoOpcao >= tipoEnderecos.length){
                 System.out.println("OPÇÃO INVALIDA");
                 i--;
@@ -168,6 +172,11 @@ public class AgendaUI {
 
         Contato contato = new Contato(tipoContato, nome, sobrenome, enderecos, telefones);
         agenda.adicionar(contato);
+    }
+
+    public void listarAgenda(){
+        ConsoleUIHelper.drawHeader("AGENDA", 150);
+        ConsoleUIHelper.drawWithPadding(agenda.listar(0, agenda.getContatos().size()).toString(), 150);
     }
 
 }
