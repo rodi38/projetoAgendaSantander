@@ -176,7 +176,7 @@ public class AgendaUI {
 
     public void listarAgenda(){
         ConsoleUIHelper.drawHeader("AGENDA", 150);
-        ConsoleUIHelper.drawWithPadding(agenda.listar(0, agenda.getContatos().size()).toString(), 150);
+        System.out.println(agenda.printAgenda());
     }
 
 }
