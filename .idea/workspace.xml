@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06785784-9f51-4f20-9275-7c44e70b1aab" name="Changes" comment="refatorando as implementações dos commits">
+    <list default="true" id="06785784-9f51-4f20-9275-7c44e70b1aab" name="Changes" comment="resolvendo erros e implementando pesquisa por nome completo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Agenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Agenda.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/AgendaUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/AgendaUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/ConsoleUIHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/ConsoleUIHelper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670774657134</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="resolvendo problema no excluir e adiconar telefone a um contato existente.">
+      <created>1670781039917</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1670781039917</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,7 +135,9 @@
     <MESSAGE value="atualização dos atributos para uma melhor legibilidade e uma implementação da função cadastraEnderecos na AgendaUI" />
     <MESSAGE value="Adicionando ConsoleUIHelper" />
     <MESSAGE value="refatorando as implementações dos commits" />
-    <option name="LAST_COMMIT_MESSAGE" value="refatorando as implementações dos commits" />
+    <MESSAGE value="resolvendo problema no excluir e adiconar telefone a um contato existente." />
+    <MESSAGE value="resolvendo erros e implementando pesquisa por nome completo" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolvendo erros e implementando pesquisa por nome completo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -26,14 +26,14 @@ public class Agenda {
     public List<Contato> pesquisarNome(String nome) {
         List<Contato> contatosEncontrados = new ArrayList<>();
         for (int i = 0; i < contatos.size(); i++) {
-            if (contatos.get(i).getNome().contains(nome)) {
+            if (contatos.get(i).getNomeCompleto().contains(nome)) {
                 contatosEncontrados.add(contatos.get(i));
             }
         }
         return contatosEncontrados;
     }
 
-    public List<Contato> pesquisarEmail(String email) {
+    /*public List<Contato> pesquisarEmail(String email) {
         List<Contato> contatosEncontrados = new ArrayList<>();
         for (int i = 0; i < contatos.size(); i++) {
             if (contatos.get(i).getNome().contains(email)) {
@@ -41,7 +41,7 @@ public class Agenda {
             }
         }
         return contatosEncontrados;
-    }
+    }*/
 
     public List<Contato> listar(int start, int quantidade) {
         if (start < 0 || start >= contatos.size()) {
