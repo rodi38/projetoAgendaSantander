@@ -35,7 +35,7 @@ public class Contato {
         return enderecos;
     }
 
-    public void setEnderecos(ArrayList<Endereco> enderecos) {
+    public void setEnderecos(List<Endereco> enderecos) {
         this.enderecos = enderecos;
     }
 
@@ -43,7 +43,7 @@ public class Contato {
         return telefones;
     }
 
-    public void setTelefones(ArrayList<Telefone> telefones) {
+    public void setTelefones(List<Telefone> telefones) {
         this.telefones = telefones;
     }
 
@@ -76,7 +76,7 @@ public class Contato {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Contato contato = (Contato) o;
-        return Objects.equals(nome, contato.nome) && Objects.equals(sobreNome, contato.sobreNome) && tipoContato == contato.tipoContato;
+        return nome.equals(contato.nome) && sobreNome.equals(contato.sobreNome) && tipoContato == contato.tipoContato && enderecos.equals(contato.enderecos) && telefones.equals(contato.telefones);
     }
 
     @Override
