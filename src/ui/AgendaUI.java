@@ -30,7 +30,8 @@ public class AgendaUI {
             System.out.println("3-Excluir um contato");
             System.out.println("4-Listar contatos");
             System.out.println("5-Adicionar um telefone a um contato existente");
-            System.out.println("6-Sair");
+            System.out.println("6-Excluir todos os contatos");
+            System.out.println("7-Sair");
             String opcao = scanner.nextLine();
             switch (opcao) {
                 case "1" -> {
@@ -51,6 +52,9 @@ public class AgendaUI {
                     adicionarTelefoneEmContatoExistente();
                 }
                 case "6" -> {
+                    excluirTodosOsContatos();
+                }
+                case "7" -> {
                     System.out.println("Saindo...");
                     continua = false;
                 }
@@ -88,6 +92,16 @@ public class AgendaUI {
             }
         }
         agenda.excluir(contato);
+    }
+
+    public void excluirTodosOsContatos() {
+        boolean confirmaExclusao = ConsoleUIHelper.askConfirm("Tem certeza que deseja remover todos os contatos?", "Sim", "Não");
+        if(confirmaExclusao) {
+            agenda.removerTodosOsContatos();
+            System.out.println("Todos os contatos foram excluídos.");
+        } else {
+            System.out.println("Exclusão cancelada.");
+        }
     }
 
     public void adicionarTelefoneEmContatoExistente() {
