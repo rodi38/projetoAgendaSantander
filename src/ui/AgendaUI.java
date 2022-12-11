@@ -32,6 +32,7 @@ public class AgendaUI {
             System.out.println("5-Adicionar um telefone a um contato existente");
             System.out.println("6-Excluir todos os contatos");
             System.out.println("7-Sair");
+            System.out.print("Opção escolhida: ");
             String opcao = scanner.nextLine();
             switch (opcao) {
                 case "1" -> {
