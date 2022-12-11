@@ -240,7 +240,7 @@ public class AgendaUI {
 }
 
     public void listarAgenda() {
-        ConsoleUIHelper.drawHeader("AGENDA", 150);
+        ConsoleUIHelper.drawHeader("AGENDA", 100);
         System.out.println(agenda.printAgenda());
     }
 
