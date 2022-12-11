@@ -53,7 +53,7 @@ public class ConsoleUIHelper {
         return askChooseOption(message, yes, no) == 0;
     }
 
-    public static BigDecimal askNumber(String message) {
+    public static BigDecimal askNumberBigDecimal(String message) {
         System.out.printf("%s%n# : ", message);
         Scanner sc = new Scanner(System.in);
         BigDecimal number;
@@ -64,6 +64,26 @@ public class ConsoleUIHelper {
                 number = null;
             }
         } while (number == null);
+        return number;
+    }
+    public static int askNumberInt(String message) {
+        System.out.printf("%s%n# : ", message);
+        Scanner sc = new Scanner(System.in);
+        int number;
+        int cont = 0;
+        do {
+            try {
+                number = sc.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Erro! informe apenas numeros positivos.");
+                cont++;
+                if (cont == 5){
+                    System.out.println(message);
+                    cont = 0;
+                }
+                number = -9;
+            }
+        } while (number < 0);
         return number;
     }
 

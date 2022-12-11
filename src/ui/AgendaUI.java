@@ -34,8 +34,8 @@ public class AgendaUI {
             String opcao = scanner.nextLine();
             switch (opcao) {
                 case "1" -> {
-                    adicionar();
-                    System.out.println(agenda.listar(0, 1));
+                    adicionarContato();
+                    System.out.println("Contato adicionado com sucesso!");
                 }
                 case "2" -> {
                     System.out.println("Pesquisar");
@@ -64,18 +64,22 @@ public class AgendaUI {
 
     public void excluirContato() {
         Contato contato = null;
-        System.out.println("Informe o nome do contato para remover.");
-        String nome = scanner.nextLine();
+        String nome = ConsoleUIHelper.askNoEmptyInput("Informe o nome do contato para remover.", 5);
         List<Contato> contatosAchados = agenda.pesquisarNome(nome);
-        for (int i = 0; i < contatosAchados.size(); i++) {
-            System.out.println("ID: " + (i + 1) + " " + contatosAchados.get(i) + "\n");
-            System.out.println("Digite o ID do contato que deseja remover:");
-            int id = scanner.nextInt() - 1;
+        for (int i = 0; i <= contatosAchados.size(); i++) {
+            if (i < contatosAchados.size()) {
+                System.out.println("ID: " + (i + 1) + " " + contatosAchados.get(i) + "\n");
+                continue;
+            }
+            int id = ConsoleUIHelper.askNumberInt("Digite o ID do contato que deseja remover:") - 1;
             if (id == i) {
-                System.out.println("Tem certeza que deseja remover este contato?\n" + contatosAchados.get(i) + "\n (1) para sim.\n (2) para voltar ao menu principal.");
-                int opcao = scanner.nextInt();
-                if (opcao == 1) {
+                boolean confirm = ConsoleUIHelper.askConfirm("Tem certeza que deseja remover este contato?" + contatosAchados.get(i), "Sim", "Não");
+                if (confirm) {
+                    System.out.println("Confirmando...");
+                    System.out.printf("Contato %s \n Excluido com sucesso!", contatosAchados.get(i));
                     contato = contatosAchados.remove(i);
+                } else {
+                    System.out.println("Exclusão cancelada. \nRetornando...");
                 }
             }
         }
@@ -85,30 +89,31 @@ public class AgendaUI {
     public void adicionarTelefoneEmContatoExistente() {
         List<Telefone> telefones = new ArrayList<>();
         Contato contato = null;
-        System.out.println("Informe o nome do contato para adicionar um telefone.");
-        String nome = scanner.nextLine();
+        String nome = ConsoleUIHelper.askNoEmptyInput("Informe o nome do contato para adicionar um telefone.", 5);
         List<Contato> contatosAchados = agenda.pesquisarNome(nome);
-        for (int i = 0; i < contatosAchados.size(); i++) {
-            System.out.println("ID: " + (i + 1) + " " + contatosAchados.get(i) + "\n");
-            System.out.println("Digite o ID do contato:");
-            int id = scanner.nextInt() - 1;
+        for (int i = 0; i <= contatosAchados.size(); i++) {
+            if (i < contatosAchados.size()) {
+                System.out.println("ID: " + (i + 1) + " " + contatosAchados.get(i) + "\n");
+                continue;
+            }
+            int id = ConsoleUIHelper.askNumberInt("Digite o ID do contato") - 1;
             if (id == i) {
                 contato = contatosAchados.remove(i);
             }
         }
         for (int i = 0; i < agenda.getContatos().size(); i++) {
-            if (agenda.getContatos().get(i).equals(contato)){
+            if (agenda.getContatos().get(i).equals(contato)) {
                 telefones = cadastraTelefones();
                 agenda.getContatos().get(i).setTelefones(telefones);
             }
         }
     }
 
-    public List<Telefone> cadastraTelefones(){
+    public List<Telefone> cadastraTelefones() {
         List<Telefone> telefones = new ArrayList<>();
         int telefoneQuantidade;
         String ddd = "", numero = "";
-        while (true){
+        while (true) {
             try {
                 System.out.println("Digite a quantidade de telefones");
                 telefoneQuantidade = Math.abs(scanner.nextInt());
@@ -123,11 +128,11 @@ public class AgendaUI {
             TipoTelefone[] tipos = TipoTelefone.values();
             System.out.println("Digite o tipo de telefone: ");
             for (int j = 0; j < tipos.length; j++) {
-                System.out.println(j+1 + " - " + tipos[j]);
+                System.out.println(j + 1 + " - " + tipos[j]);
             }
-            int tipoTelefoneOpcao = scanner.nextInt()-1;
+            int tipoTelefoneOpcao = scanner.nextInt() - 1;
             scanner.nextLine();
-            if (tipoTelefoneOpcao < 0 || tipoTelefoneOpcao >= tipos.length){
+            if (tipoTelefoneOpcao < 0 || tipoTelefoneOpcao >= tipos.length) {
                 System.out.println("OPÇÃO INVALIDA");
                 i--;
                 continue;
@@ -146,11 +151,11 @@ public class AgendaUI {
         return telefones;
     }
 
-    public List<Endereco> cadastraEnderecos(){
+    public List<Endereco> cadastraEnderecos() {
         List<Endereco> enderecos = new ArrayList<>();
         int quantidadeEnderecos;
-        String cep = "", logradouro = "", numero="", cidade = "", estado = "";
-        while (true){
+        String cep = "", logradouro = "", numero = "", cidade = "", estado = "";
+        while (true) {
             try {
                 System.out.println("Digite a quantidade de Enderecos do contato");
                 quantidadeEnderecos = Math.abs(scanner.nextInt());
@@ -165,12 +170,12 @@ public class AgendaUI {
             TipoEndereco[] tipoEnderecos = TipoEndereco.values();
             System.out.println("Digite o tipo de Endereco de acordo com o indice: ");
             for (int j = 0; j < tipoEnderecos.length; j++) {
-                System.out.println(j+1 + " - " + tipoEnderecos[j]);
+                System.out.println(j + 1 + " - " + tipoEnderecos[j]);
             }
-            int tipoEnderecoOpcao = scanner.nextInt()-1;
+            int tipoEnderecoOpcao = scanner.nextInt() - 1;
             scanner.nextLine();
 
-            if (tipoEnderecoOpcao < 0 || tipoEnderecoOpcao >= tipoEnderecos.length){
+            if (tipoEnderecoOpcao < 0 || tipoEnderecoOpcao >= tipoEnderecos.length) {
                 System.out.println("OPÇÃO INVALIDA");
                 i--;
                 continue;
@@ -186,7 +191,7 @@ public class AgendaUI {
             cidade = scanner.nextLine();
             System.out.print("Digite o nome do estado: ");
             estado = scanner.nextLine();
-            enderecos.add(new Endereco(tipoEndereco, cep, logradouro, numero, cidade,estado));
+            enderecos.add(new Endereco(tipoEndereco, cep, logradouro, numero, cidade, estado));
             System.out.println(" Endereco Cadastrado");
             System.out.println();
             System.out.println("-----------------------------");
@@ -196,28 +201,37 @@ public class AgendaUI {
         return enderecos;
     }
 
-    public  void adicionar() {
+    public void adicionarContato() {
         List<Telefone> telefones = new ArrayList<>();
         List<Endereco> enderecos = new ArrayList<>();
-        int tipoContatoOption = ConsoleUIHelper.askChooseOption("Qual tipo de contato deseja cadastrar", "Pessoal", "Comercial");
+
+        int tipoContatoOption = ConsoleUIHelper.askChooseOption("Qual tipo de contato deseja cadastrar",
+                "Pessoal", "Comercial");
         TipoContato tipoContato = TipoContato.values()[tipoContatoOption];
         String nome = ConsoleUIHelper.askSimpleInput("Digite o nome do contato");
-        String sobrenome = ConsoleUIHelper.askSimpleInput("Digite o sobrenome do contato");
+        String sobreNome = ConsoleUIHelper.askSimpleInput("Digite o sobrenome do contato");
         System.out.println("Quer cadastrar um ou mais telefone? 1 para sim e 2 para não");
         int telefoneOption = ConsoleUIHelper.askChooseOption("Quer adicionar um ou mais Telefones?", "Sim", "Não");
-        if (telefoneOption == 0){
+        if (telefoneOption == 0) {
             telefones = cadastraTelefones();
         }
         int enderecoOption = ConsoleUIHelper.askChooseOption("Quer adicionar um ou mais Endereços?", "Sim", "Não");
-        if (enderecoOption == 0){
+        if (enderecoOption == 0) {
             enderecos = cadastraEnderecos();
         }
 
-        Contato contato = new Contato(tipoContato, nome, sobrenome, enderecos, telefones);
-        agenda.adicionar(contato);
-    }
+        Contato contato = new Contato(tipoContato, nome, sobreNome, enderecos, telefones);
+        for (int i = 0; i < agenda.getContatos().size(); i++) {
+            if (agenda.getContatos().get(i).equals(contato)) {
+                System.out.println("Usuario já cadastrado, tente novamente. ");
+                return;
+            }
+        }
 
-    public void listarAgenda(){
+        agenda.adicionar(contato);
+}
+
+    public void listarAgenda() {
         ConsoleUIHelper.drawHeader("AGENDA", 150);
         System.out.println(agenda.printAgenda());
     }
