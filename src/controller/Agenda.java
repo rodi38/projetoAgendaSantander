@@ -7,16 +7,19 @@ import java.util.List;
 
 public class Agenda {
     private List<Contato> contatos;
+
     public Agenda() {
         this.contatos = new ArrayList<>();
+    }
+
+    public List<Contato> getContatos() {
+        return this.contatos;
     }
 
     public void adicionar(Contato contato) {
         contatos.add(contato);
     }
-
-
-    public void excluir(Contato contato) {
+    public void excluir(Contato contato){
         contatos.remove(contato);
     }
 
@@ -61,4 +64,56 @@ public class Agenda {
         }
         return contatoesEncontrados;
     }
+
+    public String printAgenda() {
+        if (contatos.isEmpty()) {
+            return "Nenhum contato salvo na agenda!";
+        }
+        int cont = 50;
+
+
+
+        StringBuilder dados = new StringBuilder();
+        for (int i = 0; i < contatos.size(); i++) {
+            dados.append(contatos.get(i).getNomeCompleto());
+            var telefones = contatos.get(i).getTelefones();
+            var enderecos = contatos.get(i).getEnderecos();
+            if (telefones.size() > 0) {
+                dados.append("\n");
+                dados.append("Telefones: \n");
+                for (int j = 0; j < telefones.size(); j++) {
+                    dados.append("\t").append(telefones.get(j));
+                    if ((j < telefones.size()-1)){
+                        dados.append("\n");
+                    }
+                    int tamanhoString = telefones.get(j).toString().length();
+                    if (tamanhoString > cont){
+                        cont = tamanhoString;
+                    }
+                }
+            } else {
+                dados.append("\nContato sem telefone!");
+            }
+            if (enderecos.size() > 0) {
+                dados.append("\n");
+                dados.append("Endereços: \n");
+                for (int j = 0; j < enderecos.size(); j++) {
+                    dados.append("\t").append(enderecos.get(j));
+                    if ((j < enderecos.size()-1)){
+                        dados.append("\n");
+                    }
+                    int tamanhoString = enderecos.get(j).toString().length();
+                    if (tamanhoString > cont){
+                        cont = tamanhoString;
+                    }
+                }
+            } else {
+                dados.append("\nContato sem endereços!");
+            }
+            dados.append("\n").append("#".repeat(cont));
+            dados.append("\n");
+        }
+        return dados.toString();
+    }
+
 }

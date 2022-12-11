@@ -2,6 +2,8 @@ package model;
 
 import enums.TipoTelefone;
 
+import java.util.Objects;
+
 public class Telefone {
     private TipoTelefone tipoTelefone;
     private String ddd;
@@ -49,14 +51,23 @@ public class Telefone {
         return telefone.trim().replaceAll("\\s{2,}", " ");
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Telefone telefone = (Telefone) o;
+        return tipoTelefone == telefone.tipoTelefone && ddd.equals(telefone.ddd) && numero.equals(telefone.numero);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(tipoTelefone, ddd, numero);
+    }
 
     @Override
     public String toString() {
-        return "\nTelefone{" +
-                "tipoTelefone=" + tipoTelefone +
-                ", ddd='" + ddd + '\'' +
-                ", numero='" + numero + '\'' +
-                '}';
+        return "Tipo do Telefone: " + tipoTelefone +
+                " | DDD: " + ddd +
+                " | Numero: " + numero;
     }
 }

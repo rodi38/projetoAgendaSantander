@@ -1,5 +1,6 @@
 package util;
 
+import javax.swing.*;
 import java.math.BigDecimal;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -30,13 +31,13 @@ public class ConsoleUIHelper {
     public static int askChooseOption(String message, String... options) {
         System.out.printf("%s%n# : ", message);
         for (int i = 0; i < options.length; i++) {
-            System.out.printf("%d - %s%n# : ", i, options[i]);
+            System.out.printf("%d - %s%n# : ", i+1, options[i]);
         }
         Scanner sc = new Scanner(System.in);
         int choose;
         do {
             try {
-                choose = sc.nextInt();
+                choose = sc.nextInt()-1;
             } catch (InputMismatchException e) {
                 choose = -9;
             }
@@ -52,7 +53,7 @@ public class ConsoleUIHelper {
         return askChooseOption(message, yes, no) == 0;
     }
 
-    public static BigDecimal askNumber(String message) {
+    public static BigDecimal askNumberBigDecimal(String message) {
         System.out.printf("%s%n# : ", message);
         Scanner sc = new Scanner(System.in);
         BigDecimal number;
@@ -63,6 +64,26 @@ public class ConsoleUIHelper {
                 number = null;
             }
         } while (number == null);
+        return number;
+    }
+    public static int askNumberInt(String message) {
+        System.out.printf("%s%n# : ", message);
+        Scanner sc = new Scanner(System.in);
+        int number;
+        int cont = 0;
+        do {
+            try {
+                number = sc.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Erro! informe apenas numeros positivos.");
+                cont++;
+                if (cont == 5){
+                    System.out.println(message);
+                    cont = 0;
+                }
+                number = -9;
+            }
+        } while (number < 0);
         return number;
     }
 
