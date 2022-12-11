@@ -119,7 +119,7 @@ public class AgendaUI {
             }
             int id = ConsoleUIHelper.askNumberInt("Digite o ID do contato") - 1;
             if (ids.contains(""+id)) {
-                contato = contatosAchados.remove(i);
+                contato = contatosAchados.remove(id);
             }else {
                 System.out.println("ID inexistente.");
             }
