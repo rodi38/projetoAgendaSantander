@@ -30,8 +30,9 @@ public class AgendaUI {
             System.out.println("3-Excluir um contato");
             System.out.println("4-Listar contatos");
             System.out.println("5-Adicionar um telefone a um contato existente");
-            System.out.println("6-Excluir todos os contatos");
-            System.out.println("7-Sair");
+            System.out.println("6-Adicionar um endereço a um contato  existente.");
+            System.out.println("7-Excluir todos os contatos");
+            System.out.println("8-Sair");
             System.out.print("Opção escolhida: ");
             String opcao = scanner.nextLine();
             switch (opcao) {
@@ -53,9 +54,12 @@ public class AgendaUI {
                     adicionarTelefoneEmContatoExistente();
                 }
                 case "6" -> {
-                    excluirTodosOsContatos();
+                    adicionaEnderecosEmContatoExistente();
                 }
                 case "7" -> {
+                    excluirTodosOsContatos();
+                }
+                case "8" -> {
                     System.out.println("Saindo...");
                     continua = false;
                 }
@@ -133,7 +137,30 @@ public class AgendaUI {
     }
 
     public void adicionaEnderecosEmContatoExistente()  {
-        System.out.println("Criando método.");
+        List<Endereco> enderecos = new ArrayList<>();
+        Contato contato = null;
+        String nome = ConsoleUIHelper.askNoEmptyInput("Informe o nome do contato para adicionar um endereço.", 5);
+        List<Contato> contatosAchados = agenda.pesquisarNome(nome);
+        List<String> ids = new ArrayList<>();
+        for (int i = 0; i <= contatosAchados.size(); i++) {
+            if (i < contatosAchados.size()) {
+                System.out.println("ID: " + (i + 1) + " " + contatosAchados.get(i) + "\n");
+                ids.add(""+i);
+                continue;
+            }
+            int id = ConsoleUIHelper.askNumberInt("Digite o ID do contato") - 1;
+            if (ids.contains(""+id)) {
+                contato = contatosAchados.remove(id);
+            }else {
+                System.out.println("ID inexistente.");
+            }
+        }
+        for (int i = 0; i < agenda.getContatos().size(); i++) {
+            if (agenda.getContatos().get(i).equals(contato)) {
+                enderecos = cadastraEnderecos();
+                agenda.getContatos().get(i).setEnderecos(enderecos);
+            }
+        }
     }
 
     public List<Telefone> cadastraTelefones() {

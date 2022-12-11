@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06785784-9f51-4f20-9275-7c44e70b1aab" name="Changes" comment="Adicionado &quot;Opção escolhida: &quot; no menu do usuário em AgendaUi.">
+    <list default="true" id="06785784-9f51-4f20-9275-7c44e70b1aab" name="Changes" comment="Corrigindo erro no método &quot;adicionarTelefoneEmContatoExistente&quot;.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/AgendaUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/AgendaUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670793567611</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Corrigindo erro no método &quot;adicionarTelefoneEmContatoExistente&quot;.">
+      <created>1670794596253</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1670794596253</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,7 +181,8 @@
     <MESSAGE value="refatorando as implementações dos commits" />
     <MESSAGE value="Primeiro commit na branch." />
     <MESSAGE value="Adicionado &quot;Opção escolhida: &quot; no menu do usuário em AgendaUi." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adicionado &quot;Opção escolhida: &quot; no menu do usuário em AgendaUi." />
+    <MESSAGE value="Corrigindo erro no método &quot;adicionarTelefoneEmContatoExistente&quot;." />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrigindo erro no método &quot;adicionarTelefoneEmContatoExistente&quot;." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -185,12 +194,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ui/AgendaUI.java</url>
-          <line>94</line>
+          <line>98</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ui/AgendaUI.java</url>
-          <line>66</line>
+          <line>70</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
