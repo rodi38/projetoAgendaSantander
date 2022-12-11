@@ -29,10 +29,11 @@ public class AgendaUI {
             System.out.println("2-Pesquisar por contato");
             System.out.println("3-Excluir um contato");
             System.out.println("4-Listar contatos");
-            System.out.println("5-Adicionar um telefone a um contato existente");
-            System.out.println("6-Adicionar um endereço a um contato  existente.");
-            System.out.println("7-Excluir todos os contatos");
-            System.out.println("8-Sair");
+            System.out.println("5-Listar todos os telefones de um contato.");
+            System.out.println("6-Adicionar um telefone a um contato existente.");
+            System.out.println("7-Adicionar um endereço a um contato  existente.");
+            System.out.println("8-Excluir todos os contatos");
+            System.out.println("9-Sair");
             System.out.print("Opção escolhida: ");
             String opcao = scanner.nextLine();
             switch (opcao) {
@@ -51,15 +52,18 @@ public class AgendaUI {
                     listarAgenda();
                 }
                 case "5" -> {
-                    adicionarTelefoneEmContatoExistente();
+                    listarTelefones();
                 }
                 case "6" -> {
-                    adicionaEnderecosEmContatoExistente();
+                    adicionarTelefoneEmContatoExistente();
                 }
                 case "7" -> {
-                    excluirTodosOsContatos();
+                    adicionaEnderecosEmContatoExistente();
                 }
                 case "8" -> {
+                    excluirTodosOsContatos();
+                }
+                case "9" -> {
                     System.out.println("Saindo...");
                     continua = false;
                 }
@@ -134,6 +138,15 @@ public class AgendaUI {
                 agenda.getContatos().get(i).setTelefones(telefones);
             }
         }
+    }
+
+    public void removerTelefoneEmContatoExistente() {
+
+    }
+
+    public void listarTelefones() {
+        ConsoleUIHelper.drawHeader("TELEFONES", 150);
+        System.out.println(agenda.printTelefones());
     }
 
     public void adicionaEnderecosEmContatoExistente()  {

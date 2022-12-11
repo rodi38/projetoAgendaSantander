@@ -36,7 +36,7 @@ public class Contato {
     }
 
     public void setEnderecos(List<Endereco> enderecos) {
-        this.enderecos = enderecos;
+        this.enderecos.addAll(enderecos);
     }
 
     public List<Telefone> getTelefones() {
@@ -44,7 +44,7 @@ public class Contato {
     }
 
     public void setTelefones(List<Telefone> telefones) {
-        this.telefones = telefones;
+        this.telefones.addAll(telefones);
     }
 
     public String getNome() {
