@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06785784-9f51-4f20-9275-7c44e70b1aab" name="Changes" comment="commit teste">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="06785784-9f51-4f20-9275-7c44e70b1aab" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Agenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Agenda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Contato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Contato.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/AgendaUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/AgendaUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,7 +131,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670694589961</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="adicionado função excluirContato por nome.">
+      <created>1670711371509</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1670711371509</updated>
+    </task>
+    <task id="LOCAL-00009" summary="adicionado função excluirContato por nome.">
+      <created>1670711384574</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1670711384574</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,6 +181,7 @@
     <MESSAGE value="Adicionando ConsoleUIHelper" />
     <MESSAGE value="atualizando interface" />
     <MESSAGE value="atualizando agendaUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="atualizando agendaUI" />
+    <MESSAGE value="adicionado função excluirContato por nome." />
+    <option name="LAST_COMMIT_MESSAGE" value="adicionado função excluirContato por nome." />
   </component>
 </project>

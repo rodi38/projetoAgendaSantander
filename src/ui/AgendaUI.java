@@ -19,22 +19,23 @@ public class AgendaUI {
     Scanner scanner = new Scanner(System.in);
 
 
-    public void menuInicial(){
+    public void menuInicial() {
         boolean continua = true;
 
-        while (continua){
+        while (continua) {
             System.out.println("********** AGENDA **********");
             System.out.println("Digite uma das opções abaixo");
             System.out.println("1-Adicionar um contato");
             System.out.println("2-Pesquisar por contato");
             System.out.println("3-Excluir um contato");
             System.out.println("4-Listar contatos");
-            System.out.println("5-Sair");
+            System.out.println("5-Adicionar um telefone a um contato existente");
+            System.out.println("6-Sair");
             String opcao = scanner.nextLine();
             switch (opcao) {
                 case "1" -> {
                     adicionar();
-                    System.out.println(agenda.listar(0,1));
+                    System.out.println(agenda.listar(0, 1));
                 }
                 case "2" -> {
                     System.out.println("Pesquisar");
@@ -46,7 +47,10 @@ public class AgendaUI {
                     System.out.println("Lista");
                     listarAgenda();
                 }
-                case "5" ->{
+                case "5" -> {
+                    adicionarTelefoneEmContatoExistente();
+                }
+                case "6" -> {
                     System.out.println("Saindo...");
                     continua = false;
                 }
@@ -57,15 +61,16 @@ public class AgendaUI {
         }
 
     }
-    public void excluirContato(){
+
+    public void excluirContato() {
         Contato contato = null;
         System.out.println("Informe o nome do contato para remover.");
         String nome = scanner.nextLine();
         List<Contato> contatosAchados = agenda.pesquisarNome(nome);
         for (int i = 0; i < contatosAchados.size(); i++) {
-            System.out.println("ID: " + (i+1) + " " + contatosAchados.get(i) + "\n");
-           System.out.println("Digite o ID do contato que deseja remover:");
-            int id = scanner.nextInt()-1;
+            System.out.println("ID: " + (i + 1) + " " + contatosAchados.get(i) + "\n");
+            System.out.println("Digite o ID do contato que deseja remover:");
+            int id = scanner.nextInt() - 1;
             if (id == i) {
                 System.out.println("Tem certeza que deseja remover este contato?\n" + contatosAchados.get(i) + "\n (1) para sim.\n (2) para voltar ao menu principal.");
                 int opcao = scanner.nextInt();
@@ -75,6 +80,28 @@ public class AgendaUI {
             }
         }
         agenda.excluir(contato);
+    }
+
+    public void adicionarTelefoneEmContatoExistente() {
+        List<Telefone> telefones = new ArrayList<>();
+        Contato contato = null;
+        System.out.println("Informe o nome do contato para adicionar um telefone.");
+        String nome = scanner.nextLine();
+        List<Contato> contatosAchados = agenda.pesquisarNome(nome);
+        for (int i = 0; i < contatosAchados.size(); i++) {
+            System.out.println("ID: " + (i + 1) + " " + contatosAchados.get(i) + "\n");
+            System.out.println("Digite o ID do contato:");
+            int id = scanner.nextInt() - 1;
+            if (id == i) {
+                contato = contatosAchados.remove(i);
+            }
+        }
+        for (int i = 0; i < agenda.getContatos().size(); i++) {
+            if (agenda.getContatos().get(i).equals(contato)){
+                telefones = cadastraTelefones();
+                agenda.getContatos().get(i).setTelefones(telefones);
+            }
+        }
     }
 
     public List<Telefone> cadastraTelefones(){
@@ -106,7 +133,6 @@ public class AgendaUI {
                 continue;
             }
             TipoTelefone tipoTelefone = tipos[tipoTelefoneOpcao];
-
             System.out.print("Digite o DDD: ");
             ddd = scanner.nextLine();
             System.out.print("Digite o numero: ");
@@ -117,7 +143,6 @@ public class AgendaUI {
             System.out.println("-----------------------------");
             System.out.println();
         }
-
         return telefones;
     }
 
