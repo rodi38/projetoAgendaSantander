@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06785784-9f51-4f20-9275-7c44e70b1aab" name="Changes" comment="ajustes listagem de contatos e sepração de listagem">
-      <change afterPath="$PROJECT_DIR$/src/model/arquivoteste.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_10_12_2022_17_18__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_10_12_2022_17_18__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_10_12_2022_17_21__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_10_12_2022_17_21__Changes_.xml" afterDir="false" />
+    <list default="true" id="06785784-9f51-4f20-9275-7c44e70b1aab" name="Changes" comment="refatorando as implementações dos commits">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Agenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Agenda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Endereco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Endereco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Telefone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Telefone.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/AgendaUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/AgendaUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/util/ConsoleUIHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/ConsoleUIHelper.java" afterDir="false" />
     </list>
@@ -104,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670627043278</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="refatorando as implementações dos commits">
+      <created>1670774657134</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670774657134</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,7 +127,8 @@
     <MESSAGE value="Remoção do ddi e ajuste na adição de telefone na AgendaUI" />
     <MESSAGE value="atualização dos atributos para uma melhor legibilidade e uma implementação da função cadastraEnderecos na AgendaUI" />
     <MESSAGE value="Adicionando ConsoleUIHelper" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adicionando ConsoleUIHelper" />
+    <MESSAGE value="refatorando as implementações dos commits" />
+    <option name="LAST_COMMIT_MESSAGE" value="refatorando as implementações dos commits" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -136,6 +137,16 @@
           <url>file://$PROJECT_DIR$/src/ui/AgendaUI.java</url>
           <line>22</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ui/AgendaUI.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ui/AgendaUI.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

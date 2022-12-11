@@ -49,8 +49,8 @@ public class ConsoleUIHelper {
         String[] op = new String[2];
         op[0] = yes;
         op[1] = no;
-        askChooseOption(message, op);
-        return askChooseOption(message, yes, no) == 0;
+        //askChooseOption(message, op);
+        return askChooseOption(message, op) == 0;
     }
 
     public static BigDecimal askNumberBigDecimal(String message) {

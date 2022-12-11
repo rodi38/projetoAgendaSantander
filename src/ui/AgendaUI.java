@@ -66,21 +66,25 @@ public class AgendaUI {
         Contato contato = null;
         String nome = ConsoleUIHelper.askNoEmptyInput("Informe o nome do contato para remover.", 5);
         List<Contato> contatosAchados = agenda.pesquisarNome(nome);
+        List<String> ids = new ArrayList<>();
         for (int i = 0; i <= contatosAchados.size(); i++) {
             if (i < contatosAchados.size()) {
                 System.out.println("ID: " + (i + 1) + " " + contatosAchados.get(i) + "\n");
+                ids.add(""+(i));
                 continue;
             }
             int id = ConsoleUIHelper.askNumberInt("Digite o ID do contato que deseja remover:") - 1;
-            if (id == i) {
-                boolean confirm = ConsoleUIHelper.askConfirm("Tem certeza que deseja remover este contato?" + contatosAchados.get(i), "Sim", "Não");
+            if (ids.contains(""+id)) {
+                boolean confirm = ConsoleUIHelper.askConfirm("Tem certeza que deseja remover este contato? \n" + contatosAchados.get(id), "Sim", "Não");
                 if (confirm) {
                     System.out.println("Confirmando...");
-                    System.out.printf("Contato %s \n Excluido com sucesso!", contatosAchados.get(i));
-                    contato = contatosAchados.remove(i);
+                    System.out.printf("Contato %s \n Excluido com sucesso!", contatosAchados.get(id));
+                    contato = contatosAchados.remove(id);
                 } else {
                     System.out.println("Exclusão cancelada. \nRetornando...");
                 }
+            }else {
+                System.out.println("ID inexistente.");
             }
         }
         agenda.excluir(contato);
@@ -91,14 +95,18 @@ public class AgendaUI {
         Contato contato = null;
         String nome = ConsoleUIHelper.askNoEmptyInput("Informe o nome do contato para adicionar um telefone.", 5);
         List<Contato> contatosAchados = agenda.pesquisarNome(nome);
+        List<String> ids = new ArrayList<>();
         for (int i = 0; i <= contatosAchados.size(); i++) {
             if (i < contatosAchados.size()) {
                 System.out.println("ID: " + (i + 1) + " " + contatosAchados.get(i) + "\n");
+                ids.add(""+i);
                 continue;
             }
             int id = ConsoleUIHelper.askNumberInt("Digite o ID do contato") - 1;
-            if (id == i) {
+            if (ids.contains(""+id)) {
                 contato = contatosAchados.remove(i);
+            }else {
+                System.out.println("ID inexistente.");
             }
         }
         for (int i = 0; i < agenda.getContatos().size(); i++) {
