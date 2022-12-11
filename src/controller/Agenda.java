@@ -116,4 +116,8 @@ public class Agenda {
         return dados.toString();
     }
 
+    public void removerTodosOsContatos() {
+        contatos = new ArrayList<>();
+    }
+
 }
