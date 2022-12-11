@@ -131,6 +131,10 @@ public class AgendaUI {
         }
     }
 
+    public void adicionaEnderecosEmContatoExistente()  {
+        System.out.println("Criando método.");
+    }
+
     public List<Telefone> cadastraTelefones() {
         List<Telefone> telefones = new ArrayList<>();
         int telefoneQuantidade;
