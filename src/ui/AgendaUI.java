@@ -29,7 +29,7 @@ public class AgendaUI {
             System.out.println("2-Pesquisar por contato");
             System.out.println("3-Excluir um contato");
             System.out.println("4-Listar contatos");
-            System.out.println("5-Adicionar um telefone a um contato existente");
+            System.out.println("5-Adicionar um telefone a um contato");
             System.out.println("6-Sair");
             String opcao = scanner.nextLine();
             switch (opcao) {
@@ -104,7 +104,7 @@ public class AgendaUI {
             }
             int id = ConsoleUIHelper.askNumberInt("Digite o ID do contato") - 1;
             if (ids.contains(""+id)) {
-                contato = contatosAchados.remove(i);
+                contato = contatosAchados.remove(id);
             }else {
                 System.out.println("ID inexistente.");
             }
