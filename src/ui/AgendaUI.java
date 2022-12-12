@@ -244,6 +244,16 @@ public class AgendaUI {
             }
         }
     }
+    public void exibirInformacoesContato(){
+        System.out.println("Informe o nome e o sobrenome do contato.");
+        String nomeCompleto = scanner.nextLine();
+        List<Contato> contatosAchado = agenda.pesquisarNome(nomeCompleto);
+        if (contatosAchado.size() ==  0){
+            System.out.println("Contato não encontrado.");
+            return;
+        }
+        System.out.println(contatosAchado);
+    }
 
     public List<Telefone> cadastraTelefones() {
         List<Telefone> telefones = new ArrayList<>();
