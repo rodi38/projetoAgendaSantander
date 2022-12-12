@@ -29,9 +29,12 @@ public class AgendaUI {
             System.out.println("2-Pesquisar por contato");
             System.out.println("3-Excluir um contato");
             System.out.println("4-Listar contatos");
-            System.out.println("5-Adicionar um telefone a um contato existente");
-            System.out.println("6-Excluir todos os contatos");
-            System.out.println("7-Sair");
+            System.out.println("5-Listar todos os telefones de um contato.");
+            System.out.println("6-Adicionar um telefone a um contato existente.");
+            System.out.println("7-Adicionar um endereço a um contato  existente.");
+            System.out.println("8-Excluir todos os contatos");
+            System.out.println("9-Sair");
+            System.out.print("Opção escolhida: ");
             String opcao = scanner.nextLine();
             switch (opcao) {
                 case "1" -> {
@@ -49,12 +52,18 @@ public class AgendaUI {
                     listarAgenda();
                 }
                 case "5" -> {
-                    adicionarTelefoneEmContatoExistente();
+                    listarTelefones();
                 }
                 case "6" -> {
-                    excluirTodosOsContatos();
+                    adicionarTelefoneEmContatoExistente();
                 }
                 case "7" -> {
+                    adicionaEnderecosEmContatoExistente();
+                }
+                case "8" -> {
+                    excluirTodosOsContatos();
+                }
+                case "9" -> {
                     System.out.println("Saindo...");
                     continua = false;
                 }
@@ -118,7 +127,7 @@ public class AgendaUI {
             }
             int id = ConsoleUIHelper.askNumberInt("Digite o ID do contato") - 1;
             if (ids.contains(""+id)) {
-                contato = contatosAchados.remove(i);
+                contato = contatosAchados.remove(id);
             }else {
                 System.out.println("ID inexistente.");
             }
@@ -127,6 +136,42 @@ public class AgendaUI {
             if (agenda.getContatos().get(i).equals(contato)) {
                 telefones = cadastraTelefones();
                 agenda.getContatos().get(i).setTelefones(telefones);
+            }
+        }
+    }
+
+    public void removerTelefoneEmContatoExistente() {
+
+    }
+
+    public void listarTelefones() {
+        ConsoleUIHelper.drawHeader("TELEFONES", 150);
+        System.out.println(agenda.printTelefones());
+    }
+
+    public void adicionaEnderecosEmContatoExistente()  {
+        List<Endereco> enderecos = new ArrayList<>();
+        Contato contato = null;
+        String nome = ConsoleUIHelper.askNoEmptyInput("Informe o nome do contato para adicionar um endereço.", 5);
+        List<Contato> contatosAchados = agenda.pesquisarNome(nome);
+        List<String> ids = new ArrayList<>();
+        for (int i = 0; i <= contatosAchados.size(); i++) {
+            if (i < contatosAchados.size()) {
+                System.out.println("ID: " + (i + 1) + " " + contatosAchados.get(i) + "\n");
+                ids.add(""+i);
+                continue;
+            }
+            int id = ConsoleUIHelper.askNumberInt("Digite o ID do contato") - 1;
+            if (ids.contains(""+id)) {
+                contato = contatosAchados.remove(id);
+            }else {
+                System.out.println("ID inexistente.");
+            }
+        }
+        for (int i = 0; i < agenda.getContatos().size(); i++) {
+            if (agenda.getContatos().get(i).equals(contato)) {
+                enderecos = cadastraEnderecos();
+                agenda.getContatos().get(i).setEnderecos(enderecos);
             }
         }
     }
