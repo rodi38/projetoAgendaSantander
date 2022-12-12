@@ -29,14 +29,14 @@ public class Agenda {
     public List<Contato> pesquisarNome(String nome) {
         List<Contato> contatosEncontrados = new ArrayList<>();
         for (int i = 0; i < contatos.size(); i++) {
-            if (contatos.get(i).getNomeCompleto().contains(nome)) {
+            if (contatos.get(i).getNome().contains(nome)) {
                 contatosEncontrados.add(contatos.get(i));
             }
         }
         return contatosEncontrados;
     }
 
-    /*public List<Contato> pesquisarEmail(String email) {
+    public List<Contato> pesquisarEmail(String email) {
         List<Contato> contatosEncontrados = new ArrayList<>();
         for (int i = 0; i < contatos.size(); i++) {
             if (contatos.get(i).getNome().contains(email)) {
@@ -44,7 +44,7 @@ public class Agenda {
             }
         }
         return contatosEncontrados;
-    }*/
+    }
 
     public List<Contato> listar(int start, int quantidade) {
         if (start < 0 || start >= contatos.size()) {
@@ -123,6 +123,59 @@ public class Agenda {
         List<Telefone> telefones = new ArrayList<>();
         Contato contato = null;
         String nome = ConsoleUIHelper.askNoEmptyInput("Informe o nome do contato cujos telefones gostaria de  exibir.", 5);
+        List<Contato> contatosAchados = this.pesquisarNome(nome);
+        List<String> ids = new ArrayList<>();
+        for (int i = 0; i <= contatosAchados.size(); i++) {
+            if (i < contatosAchados.size()) {
+                System.out.println("ID: " + (i + 1) + " " + contatosAchados.get(i) + "\n");
+                ids.add(""+i);
+                continue;
+            }
+            int id = ConsoleUIHelper.askNumberInt("Digite o ID do contato") - 1;
+            if (ids.contains(""+id)) {
+                contato = contatosAchados.remove(id);
+            }else {
+                System.out.println("ID inexistente.");
+            }
+        }
+        if (contatos.isEmpty()) {
+            return "Nenhum contato salvo na agenda!";
+        }
+        int cont = 50;
+
+        StringBuilder dados = new StringBuilder();
+        for (int i = 0; i < this.getContatos().size(); i++) {
+            if (this.getContatos().get(i).equals(contato)) {
+                dados.append(contatos.get(i).getNomeCompleto());
+                telefones = contatos.get(i).getTelefones();
+                if (telefones.size() > 0) {
+                    dados.append("\n");
+                    dados.append("Telefones: \n");
+                    for (int j = 0; j < telefones.size(); j++) {
+                        dados.append("\t").append(telefones.get(j));
+                        if ((j < telefones.size()-1)){
+                            dados.append("\n");
+                        }
+                        int tamanhoString = telefones.get(j).toString().length();
+                        if (tamanhoString > cont){
+                            cont = tamanhoString;
+                        }
+                    }
+                } else {
+                    dados.append("\nContato sem telefone!");
+                }
+
+                dados.append("\n").append("#".repeat(cont));
+                dados.append("\n");
+            }
+        }
+        return dados.toString();
+    }
+
+    public String removerTelefone() {
+        List<Telefone> telefones = new ArrayList<>();
+        Contato contato = null;
+        String nome = ConsoleUIHelper.askNoEmptyInput("Informe o nome do contato cujo telefone gostaria de remover.", 5);
         List<Contato> contatosAchados = this.pesquisarNome(nome);
         List<String> ids = new ArrayList<>();
         for (int i = 0; i <= contatosAchados.size(); i++) {
