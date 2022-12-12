@@ -1,6 +1,7 @@
 package controller;
 
 import model.Contato;
+import model.Endereco;
 import model.Telefone;
 import util.ConsoleUIHelper;
 
@@ -138,6 +139,55 @@ public class Agenda {
                     }
                 } else {
                     dados.append("\nContato sem telefones!");
+                }
+
+                dados.append("\n");
+                dados.append("#".repeat(120));
+                dados.append("\n");
+            }
+        }
+        return dados.toString();
+    }
+
+    public String printEnderecos() {
+        List<Endereco> enderecos = new ArrayList<>();
+        Contato contato = null;
+        String nome = ConsoleUIHelper.askNoEmptyInput("Informe o nome do contato cujo endereços gostaria de exibir.", 5);
+        List<Contato> contatosAchados = this.pesquisarNome(nome);
+        if (contatosAchados.size() == 0){
+            System.out.println("Contato não encontrado.");
+            return "Contato não encontrado";
+        }
+        List<String> ids = new ArrayList<>();
+        for (int i = 0; i <= contatosAchados.size(); i++) {
+            if (i < contatosAchados.size()) {
+                System.out.println("ID: " + (i + 1) + " " + contatosAchados.get(i) + "\n");
+                ids.add(""+i);
+                continue;
+            }
+            int id = ConsoleUIHelper.askNumberInt("Digite o ID do contato") - 1;
+            if (ids.contains(""+id)) {
+                contato = contatosAchados.remove(id);
+            }else {
+                System.out.println("ID inexistente.");
+            }
+        }
+        StringBuilder dados = new StringBuilder();
+        for (int i = 0; i < this.getContatos().size(); i++) {
+            if (this.getContatos().get(i).equals(contato)) {
+                dados.append(contatos.get(i).getNomeCompleto());
+                enderecos = contatos.get(i).getEnderecos();
+                if (enderecos.size() > 0) {
+                    dados.append("\n");
+                    dados.append("Endereços: \n");
+                    for (int j = 0; j < enderecos.size(); j++) {
+                        dados.append("\t").append(enderecos.get(j));
+                        if ((j < enderecos.size()-1)){
+                            dados.append("\n");
+                        }
+                    }
+                } else {
+                    dados.append("\nContato sem endereços!");
                 }
 
                 dados.append("\n");

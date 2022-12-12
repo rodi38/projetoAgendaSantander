@@ -32,11 +32,12 @@ public class AgendaUI {
             System.out.println("3-Excluir um contato");
             System.out.println("4-Listar contatos");
             System.out.println("5-Listar todos os telefones de um contato.");
-            System.out.println("6-Adicionar um telefone a um contato existente.");
-            System.out.println("7-Adicionar um endereço a um contato  existente.");
-            System.out.println("8-Excluir todos os contatos");
-            System.out.println("9-Limpar a tela");
-            System.out.println("10-Sair");
+            System.out.println("6-Listar todos os endereços de um contato.");
+            System.out.println("7-Adicionar um telefone a um contato existente.");
+            System.out.println("8-Adicionar um endereço a um contato  existente.");
+            System.out.println("9-Excluir todos os contatos");
+            System.out.println("10-Limpar a tela");
+            System.out.println("11-Sair");
             ConsoleUIHelper.drawLine(width);
             System.out.print("Opção escolhida: ");
             String opcao = scanner.nextLine();
@@ -67,24 +68,29 @@ public class AgendaUI {
                     System.out.println();
                 }
                 case "6" -> {
-                    adicionarTelefoneEmContatoExistente();
+                    listarEnderecos();
                     ConsoleUIHelper.drawLine(width);
                     System.out.println();
                 }
                 case "7" -> {
-                    adicionaEnderecosEmContatoExistente();
+                    adicionarTelefoneEmContatoExistente();
                     ConsoleUIHelper.drawLine(width);
                     System.out.println();
                 }
                 case "8" -> {
-                    excluirTodosOsContatos();
+                    adicionaEnderecosEmContatoExistente();
                     ConsoleUIHelper.drawLine(width);
                     System.out.println();
                 }
                 case "9" -> {
-                    ConsoleUIHelper.clearScreen();
+                    excluirTodosOsContatos();
+                    ConsoleUIHelper.drawLine(width);
+                    System.out.println();
                 }
                 case "10" -> {
+                    ConsoleUIHelper.clearScreen();
+                }
+                case "11" -> {
                     System.out.println("Saindo...");
                     continua = false;
                 }
@@ -188,6 +194,11 @@ public class AgendaUI {
     public void listarTelefones() {
         ConsoleUIHelper.drawHeader("TELEFONES", 150);
         System.out.println(agenda.printTelefones());
+    }
+
+    public void listarEnderecos() {
+        ConsoleUIHelper.drawHeader("ENDEREÇOS", 300);
+        System.out.println(agenda.printEnderecos());
     }
 
 
