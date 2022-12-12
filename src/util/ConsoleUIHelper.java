@@ -1,13 +1,16 @@
 package util;
 
+import javax.swing.*;
 import java.math.BigDecimal;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ConsoleUIHelper {
     public static void clearScreen() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+       /* System.out.print("\033[H\033[2J");
+        System.out.print("\033\143");
+        System.out.flush();  não funciona*/
+        System.out.println(System.lineSeparator().repeat(50));
     }
 
     public static String askSimpleInput(String message) {
@@ -30,13 +33,22 @@ public class ConsoleUIHelper {
     public static int askChooseOption(String message, String... options) {
         System.out.printf("%s%n# : ", message);
         for (int i = 0; i < options.length; i++) {
-            System.out.printf("%d - %s%n# : ", i, options[i]);
+            System.out.printf("%d - %s%n# : ", i+1, options[i]);
         }
         Scanner sc = new Scanner(System.in);
         int choose;
+        int cont = 0;
         do {
             try {
-                choose = sc.nextInt();
+                choose = sc.nextInt()-1;
+                cont++;
+                if (cont == 3){
+                    System.out.printf("%n%s%n# : ", message);
+                    for (int i = 0; i < options.length; i++) {
+                        System.out.printf("%d - %s%n# : ", i+1, options[i]);
+                    }
+                    cont = 0;
+                }
             } catch (InputMismatchException e) {
                 choose = -9;
             }
@@ -48,11 +60,11 @@ public class ConsoleUIHelper {
         String[] op = new String[2];
         op[0] = yes;
         op[1] = no;
-        askChooseOption(message, op);
-        return askChooseOption(message, yes, no) == 0;
+        //askChooseOption(message, op);
+        return askChooseOption(message, op) == 0;
     }
 
-    public static BigDecimal askNumber(String message) {
+    public static BigDecimal askNumberBigDecimal(String message) {
         System.out.printf("%s%n# : ", message);
         Scanner sc = new Scanner(System.in);
         BigDecimal number;
@@ -63,6 +75,26 @@ public class ConsoleUIHelper {
                 number = null;
             }
         } while (number == null);
+        return number;
+    }
+    public static int askNumberInt(String message) {
+        System.out.printf("%s%n# : ", message);
+        Scanner sc = new Scanner(System.in);
+        int number;
+        int cont = 0;
+        do {
+            try {
+                number = sc.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Erro! informe apenas numeros positivos.");
+                cont++;
+                if (cont == 5){
+                    System.out.printf("%s%n# : ", message);
+                    cont = 0;
+                }
+                number = -9;
+            }
+        } while (number < 0);
         return number;
     }
 

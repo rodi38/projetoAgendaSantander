@@ -10,23 +10,22 @@ public class Contato {
     private String nome;
     private String sobreNome;
     private TipoContato tipoContato;
-    private ArrayList<Endereco> enderecos;
-    private ArrayList<Telefone> telefones;
+    private List<Endereco> enderecos;
+    private List<Telefone> telefones;
 
-    public Contato(TipoContato tipoContato, String nome, String sobreNome) {
-        this(nome, tipoContato);
-        this.sobreNome = sobreNome;
-
-    }
-
-    public Contato(String nome, TipoContato tipoContato) {
+    public Contato(String nome, String sobreNome) {
+        this.tipoContato = TipoContato.Pessoal;
         this.nome = nome;
-        this.tipoContato = tipoContato;
+        this.sobreNome = sobreNome;
     }
 
-    public Contato(String nome, String sobreNome, TipoContato tipoContato, ArrayList<Endereco> enderecos,
-                   ArrayList<Telefone> telefones) {
-        this(tipoContato, nome, sobreNome);
+
+
+    public Contato(TipoContato tipoContato, String nome, String sobreNome, List<Endereco> enderecos,
+                   List<Telefone> telefones) {
+        this.tipoContato = tipoContato;
+        this.nome = nome;
+        this.sobreNome = sobreNome;
         this.enderecos = enderecos;
         this.telefones = telefones;
     }
@@ -36,16 +35,16 @@ public class Contato {
         return enderecos;
     }
 
-    public void setEnderecos(ArrayList<Endereco> enderecos) {
-        this.enderecos = enderecos;
+    public void setEnderecos(List<Endereco> enderecos) {
+        this.enderecos.addAll(enderecos);
     }
 
     public List<Telefone> getTelefones() {
         return telefones;
     }
 
-    public void setTelefones(ArrayList<Telefone> telefones) {
-        this.telefones = telefones;
+    public void setTelefones(List<Telefone> telefones) {
+        this.telefones.addAll(telefones);
     }
 
     public String getNome() {
@@ -77,7 +76,7 @@ public class Contato {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Contato contato = (Contato) o;
-        return Objects.equals(nome, contato.nome) && Objects.equals(sobreNome, contato.sobreNome) && tipoContato == contato.tipoContato;
+        return nome.equals(contato.nome) && sobreNome.equals(contato.sobreNome) && tipoContato == contato.tipoContato && enderecos.equals(contato.enderecos) && telefones.equals(contato.telefones);
     }
 
     @Override
@@ -95,13 +94,12 @@ public class Contato {
 
     @Override
     public String toString() {
-        return "Contato{" +
-                " Tipo de contato = " + tipoContato +
-                ", nome='" + nome + '\'' +
-                ", sobreNome='" + sobreNome + '\'' +
-                ", endereco=" + enderecos +
-                ", telefone=" + telefones +
-                '}';
+        return "Contato: \t" +
+                "Tipo de contato: " + tipoContato +
+                " | Nome: " + nome +
+                " | Sobre Nome: " + sobreNome +
+                " | Enderecos: " + enderecos +
+                " | Telefones: " + telefones;
     }
 
 }
