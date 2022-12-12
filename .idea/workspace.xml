@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06785784-9f51-4f20-9275-7c44e70b1aab" name="Changes" comment="refatorando codigo e corrigindo bugs">
+    <list default="true" id="06785784-9f51-4f20-9275-7c44e70b1aab" name="Changes" comment="Remover Telefone de um contato Implementado.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Agenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Agenda.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/AgendaUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/AgendaUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,6 +64,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -80,8 +80,6 @@
       <workItem from="1670508267386" duration="9411000" />
       <workItem from="1670523122567" duration="42000" />
       <workItem from="1670621572882" duration="1253000" />
-      <workItem from="1670863786304" duration="69000" />
-      <workItem from="1670863943000" duration="1829000" />
     </task>
     <task id="LOCAL-00001" summary="atualizando interface">
       <created>1670513154880</created>
@@ -153,12 +151,12 @@
       <option name="project" value="LOCAL" />
       <updated>1670795427990</updated>
     </task>
-    <task id="LOCAL-00011" summary="refatorando codigo e corrigindo bugs">
-      <created>1670864151774</created>
+    <task id="LOCAL-00011" summary="Remover Telefone de um contato Implementado.">
+      <created>1670878603555</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1670864151774</updated>
+      <updated>1670878603555</updated>
     </task>
     <option name="localTasksCounter" value="12" />
     <servers />
@@ -177,7 +175,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/rodrigoref" />
+                        <option value="origin/chris" />
                       </list>
                     </value>
                   </entry>
@@ -200,26 +198,16 @@
     <MESSAGE value="Adicionado &quot;Opção escolhida: &quot; no menu do usuário em AgendaUi." />
     <MESSAGE value="Corrigindo erro no método &quot;adicionarTelefoneEmContatoExistente&quot;." />
     <MESSAGE value="Acrescentando a opção &quot;6-Adicionar um endereço a um contato existente.&quot; em AgendaUI." />
-    <MESSAGE value="refatorando codigo e corrigindo bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="refatorando codigo e corrigindo bugs" />
+    <MESSAGE value="Remover Telefone de um contato Implementado." />
+    <option name="LAST_COMMIT_MESSAGE" value="Remover Telefone de um contato Implementado." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ui/AgendaUI.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ui/AgendaUI.java</url>
-          <line>136</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ui/AgendaUI.java</url>
-          <line>98</line>
-          <option name="timeStamp" value="9" />
+          <line>290</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
