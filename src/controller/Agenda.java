@@ -64,7 +64,8 @@ public class Agenda {
         }
         StringBuilder dados = new StringBuilder();
         for (int i = 0; i < contatos.size(); i++) {
-            dados.append(contatos.get(i).getNomeCompleto());
+            dados.append(contatos.get(i).getNomeCompleto().toUpperCase()).append(" | Tipo: ");
+            dados.append(contatos.get(i).getTipoContato());
             var telefones = contatos.get(i).getTelefones();
             var enderecos = contatos.get(i).getEnderecos();
             if (telefones.size() > 0) {
@@ -77,7 +78,7 @@ public class Agenda {
                     }
                 }
             } else {
-                dados.append("\nContato sem telefone!");
+                dados.append("\nContato sem telefones!");
             }
             if (enderecos.size() > 0) {
                 dados.append("\n");
@@ -92,7 +93,7 @@ public class Agenda {
                 dados.append("\nContato sem endereços!");
             }
             dados.append("\n");
-            ConsoleUIHelper.drawLine(120);
+            dados.append("#".repeat(120));
             dados.append("\n");
         }
         return dados.toString();
@@ -136,11 +137,11 @@ public class Agenda {
                         }
                     }
                 } else {
-                    dados.append("\nContato sem telefone!");
+                    dados.append("\nContato sem telefones!");
                 }
 
                 dados.append("\n");
-                ConsoleUIHelper.drawLine(120);
+                dados.append("#".repeat(120));
                 dados.append("\n");
             }
         }

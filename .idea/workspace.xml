@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06785784-9f51-4f20-9275-7c44e70b1aab" name="Changes" comment="Acrescentando a opção &quot;6-Adicionar um endereço a um contato existente.&quot; em AgendaUI.">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_10_12_2022_17_18__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_10_12_2022_17_18__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_10_12_2022_17_21__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_10_12_2022_17_21__Changes_.xml" afterDir="false" />
+    <list default="true" id="06785784-9f51-4f20-9275-7c44e70b1aab" name="Changes" comment="refatorando codigo e corrigindo bugs">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Agenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Agenda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/AgendaUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/AgendaUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +81,7 @@
       <workItem from="1670523122567" duration="42000" />
       <workItem from="1670621572882" duration="1253000" />
       <workItem from="1670863786304" duration="69000" />
+      <workItem from="1670863943000" duration="1829000" />
     </task>
     <task id="LOCAL-00001" summary="atualizando interface">
       <created>1670513154880</created>
@@ -151,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670795427990</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="refatorando codigo e corrigindo bugs">
+      <created>1670864151774</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1670864151774</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,7 +177,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/chris" />
+                        <option value="origin/rodrigoref" />
                       </list>
                     </value>
                   </entry>
@@ -191,24 +200,25 @@
     <MESSAGE value="Adicionado &quot;Opção escolhida: &quot; no menu do usuário em AgendaUi." />
     <MESSAGE value="Corrigindo erro no método &quot;adicionarTelefoneEmContatoExistente&quot;." />
     <MESSAGE value="Acrescentando a opção &quot;6-Adicionar um endereço a um contato existente.&quot; em AgendaUI." />
-    <option name="LAST_COMMIT_MESSAGE" value="Acrescentando a opção &quot;6-Adicionar um endereço a um contato existente.&quot; em AgendaUI." />
+    <MESSAGE value="refatorando codigo e corrigindo bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="refatorando codigo e corrigindo bugs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ui/AgendaUI.java</url>
-          <line>22</line>
+          <line>24</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ui/AgendaUI.java</url>
-          <line>102</line>
+          <line>136</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ui/AgendaUI.java</url>
-          <line>74</line>
+          <line>98</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>

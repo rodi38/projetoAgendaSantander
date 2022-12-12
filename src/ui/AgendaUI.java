@@ -346,9 +346,21 @@ public class AgendaUI {
     }
 
     public void listarAgenda() {
+        if (agenda.printAgenda().equals("Nenhum contato salvo na agenda!")){
+            ConsoleUIHelper.drawLine(width);
+            System.out.println();
+            System.out.println(agenda.printAgenda());
+            System.out.println();
+            ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu");
+            return;
+
+        }
         ConsoleUIHelper.drawHeader("AGENDA", width);
-        int linha = ConsoleUIHelper.drawWithRightPadding(agenda.printAgenda(), width, pad);
-        ConsoleUIHelper.drawLine(linha);
+        System.out.println(agenda.printAgenda());
+        ConsoleUIHelper.drawLine(width);
+        ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu");
+        System.out.println();
+
     }
 
     public void pesquisarContatos() {
