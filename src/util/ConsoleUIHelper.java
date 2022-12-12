@@ -7,8 +7,10 @@ import java.util.Scanner;
 
 public class ConsoleUIHelper {
     public static void clearScreen() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+       /* System.out.print("\033[H\033[2J");
+        System.out.print("\033\143");
+        System.out.flush();  não funciona*/
+        System.out.println(System.lineSeparator().repeat(50));
     }
 
     public static String askSimpleInput(String message) {
@@ -35,9 +37,18 @@ public class ConsoleUIHelper {
         }
         Scanner sc = new Scanner(System.in);
         int choose;
+        int cont = 0;
         do {
             try {
                 choose = sc.nextInt()-1;
+                cont++;
+                if (cont == 3){
+                    System.out.printf("%n%s%n# : ", message);
+                    for (int i = 0; i < options.length; i++) {
+                        System.out.printf("%d - %s%n# : ", i+1, options[i]);
+                    }
+                    cont = 0;
+                }
             } catch (InputMismatchException e) {
                 choose = -9;
             }
@@ -78,7 +89,7 @@ public class ConsoleUIHelper {
                 System.out.println("Erro! informe apenas numeros positivos.");
                 cont++;
                 if (cont == 5){
-                    System.out.println(message);
+                    System.out.printf("%s%n# : ", message);
                     cont = 0;
                 }
                 number = -9;

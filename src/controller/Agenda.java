@@ -29,17 +29,7 @@ public class Agenda {
     public List<Contato> pesquisarNome(String nome) {
         List<Contato> contatosEncontrados = new ArrayList<>();
         for (int i = 0; i < contatos.size(); i++) {
-            if (contatos.get(i).getNome().contains(nome)) {
-                contatosEncontrados.add(contatos.get(i));
-            }
-        }
-        return contatosEncontrados;
-    }
-
-    public List<Contato> pesquisarEmail(String email) {
-        List<Contato> contatosEncontrados = new ArrayList<>();
-        for (int i = 0; i < contatos.size(); i++) {
-            if (contatos.get(i).getNome().contains(email)) {
+            if (contatos.get(i).getNomeCompleto().contains(nome)) {
                 contatosEncontrados.add(contatos.get(i));
             }
         }
@@ -72,13 +62,10 @@ public class Agenda {
         if (contatos.isEmpty()) {
             return "Nenhum contato salvo na agenda!";
         }
-        int cont = 50;
-
-
-
         StringBuilder dados = new StringBuilder();
         for (int i = 0; i < contatos.size(); i++) {
-            dados.append(contatos.get(i).getNomeCompleto());
+            dados.append(contatos.get(i).getNomeCompleto().toUpperCase()).append(" | Tipo: ");
+            dados.append(contatos.get(i).getTipoContato());
             var telefones = contatos.get(i).getTelefones();
             var enderecos = contatos.get(i).getEnderecos();
             if (telefones.size() > 0) {
@@ -89,13 +76,9 @@ public class Agenda {
                     if ((j < telefones.size()-1)){
                         dados.append("\n");
                     }
-                    int tamanhoString = telefones.get(j).toString().length();
-                    if (tamanhoString > cont){
-                        cont = tamanhoString;
-                    }
                 }
             } else {
-                dados.append("\nContato sem telefone!");
+                dados.append("\nContato sem telefones!");
             }
             if (enderecos.size() > 0) {
                 dados.append("\n");
@@ -105,15 +88,12 @@ public class Agenda {
                     if ((j < enderecos.size()-1)){
                         dados.append("\n");
                     }
-                    int tamanhoString = enderecos.get(j).toString().length();
-                    if (tamanhoString > cont){
-                        cont = tamanhoString;
-                    }
                 }
             } else {
                 dados.append("\nContato sem endereços!");
             }
-            dados.append("\n").append("#".repeat(cont));
+            dados.append("\n");
+            dados.append("#".repeat(120));
             dados.append("\n");
         }
         return dados.toString();
@@ -124,6 +104,10 @@ public class Agenda {
         Contato contato = null;
         String nome = ConsoleUIHelper.askNoEmptyInput("Informe o nome do contato cujos telefones gostaria de  exibir.", 5);
         List<Contato> contatosAchados = this.pesquisarNome(nome);
+        if (contatosAchados.size() == 0){
+            System.out.println("Contato não encontrado.");
+            return "Contato não encontrado";
+        }
         List<String> ids = new ArrayList<>();
         for (int i = 0; i <= contatosAchados.size(); i++) {
             if (i < contatosAchados.size()) {
@@ -138,11 +122,6 @@ public class Agenda {
                 System.out.println("ID inexistente.");
             }
         }
-        if (contatos.isEmpty()) {
-            return "Nenhum contato salvo na agenda!";
-        }
-        int cont = 50;
-
         StringBuilder dados = new StringBuilder();
         for (int i = 0; i < this.getContatos().size(); i++) {
             if (this.getContatos().get(i).equals(contato)) {
@@ -156,16 +135,13 @@ public class Agenda {
                         if ((j < telefones.size()-1)){
                             dados.append("\n");
                         }
-                        int tamanhoString = telefones.get(j).toString().length();
-                        if (tamanhoString > cont){
-                            cont = tamanhoString;
-                        }
                     }
                 } else {
-                    dados.append("\nContato sem telefone!");
+                    dados.append("\nContato sem telefones!");
                 }
 
-                dados.append("\n").append("#".repeat(cont));
+                dados.append("\n");
+                dados.append("#".repeat(120));
                 dados.append("\n");
             }
         }
