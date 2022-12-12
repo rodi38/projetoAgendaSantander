@@ -10,15 +10,15 @@
 <h2>Requisitos</h2>
 <hr>
 
-- [x] Um contato pode possuir múltiplos endereços.  <br/>
-- [ ] O armazenamento de telefones deve permitir incluir separadamente as informações de DDD e número.  <br/>
-- [ ] O armazenamento de endereços deve permitir incluir separamente as informações de CEP, logradouro, número, cidade e estado. <br/>
- 
+  - [x] Um contato pode possuir múltiplos endereços.  <br/>
+  - [ ] O armazenamento de telefones deve permitir incluir separadamente as informações de DDD e número.  <br/>
+  - [ ] O armazenamento de endereços deve permitir incluir separamente as informações de CEP, logradouro, número, cidade e estado. <br/>
+
 <h3>O sistema deve permitir a interação com o usuário com as seguintes ações: </h3>  <br/>
 
   - [X] a. Adicionar um contato e seus dados  <br/>
   - [X] b. Listar todos os contatos da agenda   <br/>
-  - [X] c. Buscar um contato de acordo com uma palavra chave (Utilize os dados de nome, sobrenome para realizar a busca) <br/>
+  - [X] c. Buscar um contato de acordo com uma palavra chave (Utilize os dados de nome, sobrenome) <br/>
   - [X] d. Remover um contato da agenda<br/>
   - [X] e. Remover todos os contatos da agenda<br/>
   - [X] f. Adicionar um telefone a um contato<br/>
