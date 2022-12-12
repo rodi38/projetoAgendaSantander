@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06785784-9f51-4f20-9275-7c44e70b1aab" name="Changes" comment="refatorando interface e deixando mais legivel os comandos">
-      <change afterPath="$PROJECT_DIR$/src/util/InputHelper.java" afterDir="false" />
+    <list default="true" id="06785784-9f51-4f20-9275-7c44e70b1aab" name="Changes" comment="Remover Telefone de um contato Implementado.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/AgendaUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/AgendaUI.java" afterDir="false" />
     </list>
@@ -152,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670795427990</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Remover Telefone de um contato Implementado.">
+      <created>1670878603555</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1670878603555</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,6 +198,18 @@
     <MESSAGE value="Adicionado &quot;Opção escolhida: &quot; no menu do usuário em AgendaUi." />
     <MESSAGE value="Corrigindo erro no método &quot;adicionarTelefoneEmContatoExistente&quot;." />
     <MESSAGE value="Acrescentando a opção &quot;6-Adicionar um endereço a um contato existente.&quot; em AgendaUI." />
-    <option name="LAST_COMMIT_MESSAGE" value="Acrescentando a opção &quot;6-Adicionar um endereço a um contato existente.&quot; em AgendaUI." />
+    <MESSAGE value="Remover Telefone de um contato Implementado." />
+    <option name="LAST_COMMIT_MESSAGE" value="Remover Telefone de um contato Implementado." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ui/AgendaUI.java</url>
+          <line>290</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
