@@ -27,7 +27,7 @@
   - [ ] i. Remover um endereço de um contato da agenda <br/>
   - [ ] j. Exibir todas as informações de um contato da agenda<br/>
   - [X] k. Listar todos os telefones de um contato da agenda<br/>
-  - [ ] l. Listar todos os endereços de um contato da agenda<br/>
+  - [X] l. Listar todos os endereços de um contato da agenda<br/>
   - [ ] m. Exibir todas as informações de um telefone de um contato da agenda<br/>
   - [ ] n. Exibir todas as informações de um endereço de um contato da agenda<br/>
 
