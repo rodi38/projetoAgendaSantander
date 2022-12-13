@@ -42,6 +42,15 @@ public class Agenda {
         }
         return contatosEncontrados;
     }
+    public List<Contato> pesquisarNomeTeste(String nome) {
+        List<Contato> contatosEncontrados = new ArrayList<>();
+        for (int i = 0; i < contatos.size(); i++) {
+            if (contatos.get(i).getNomeCompleto().contains(nome)) {
+                contatosEncontrados.add(contatos.get(i));
+            }
+        }
+        return contatosEncontrados;
+    }
 
     public List<Contato> listar(int start, int quantidade) {
         if (start < 0 || start >= contatos.size()) {
@@ -154,10 +163,9 @@ public class Agenda {
         }
         return dados.toString();
     }*/
-    public String printTelefones() {
+    public String printTelefones(String nome) {
         List<Telefone> telefones = new ArrayList<>();
         Contato contato = null;
-        String nome = ConsoleUIHelper.askNoEmptyInput("Informe o nome do contato cujos telefones gostaria de  exibir.", 5);
         List<Contato> contatosAchados = this.pesquisarNome(nome);
         if (contatosAchados.size() == 0){
             System.out.println("Contato não encontrado.");
@@ -243,7 +251,6 @@ public class Agenda {
                 } else {
                     dados.append("\nContato sem endereços!");
                 }
-
                 dados.append("\n");
                 dados.append("#".repeat(120));
                 dados.append("\n");

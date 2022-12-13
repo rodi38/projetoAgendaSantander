@@ -22,6 +22,17 @@ public class RNHelper {
             }
             return;
         }
+        if (telefones.size() == 1){
+            telefone = telefones.get(0);
+            for (int i = 0; i < agenda.getContatos().size() ; i++) {
+                if (agenda.getContatos().get(i).getTelefones().contains(telefone)){
+                    System.out.println("DDD e Numero já cadastrado em um telefone, tente outro.");
+                    telefones.remove(telefone);
+                    ConsoleUIHelper.drawLine(120);
+                }
+            }
+            return;
+        }
         for (int j = 0; j <telefones.size() ; j++) {
             telefone = telefones.get(j);
             for (int k = 0; k < agenda.getContatos().size(); k++) {
@@ -33,15 +44,16 @@ public class RNHelper {
             }
         }
     }
-    public static void trataContato(Agenda agenda, Contato contato){
+    public static int trataContato(Agenda agenda, Contato contato){
         for (int i = 0; i < agenda.getContatos().size(); i++) {
             if (agenda.getContatos().get(i).equals(contato)) {
                 System.out.println("Usuario já cadastrado, tente novamente. ");
                 ConsoleUIHelper.drawLine(120);
                 ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu");
-                return;
+                return 1;
             }
         }
+        return 0;
     }
     public static void trataEndereco(Agenda agenda, List<Endereco> enderecos){
         Endereco endereco = null;
@@ -50,6 +62,17 @@ public class RNHelper {
                 endereco = enderecos.get(j);
                 if (enderecos.contains(endereco)){
                     System.out.println("Cep e numero já cadastrados em um endereço, tente novamente.");
+                    enderecos.remove(endereco);
+                    ConsoleUIHelper.drawLine(120);
+                }
+            }
+            return;
+        }
+        if (enderecos.size() == 1){
+            endereco = enderecos.get(0);
+            for (int i = 0; i < agenda.getContatos().size() ; i++) {
+                if (agenda.getContatos().get(i).getTelefones().contains(endereco)){
+                    System.out.println("DDD e Numero já cadastrado em um telefone, tente outro.");
                     enderecos.remove(endereco);
                     ConsoleUIHelper.drawLine(120);
                 }
