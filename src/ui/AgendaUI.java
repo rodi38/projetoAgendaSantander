@@ -158,32 +158,15 @@ public class AgendaUI {
     public void adicionarTelefoneEmContatoExistente() {
         List<Telefone> telefones = new ArrayList<>();
         Contato contato = null;
-        String nome = ConsoleUIHelper.askNoEmptyInput("Informe o nome do contato para adicionar um telefone.", 5);
-        List<Contato> contatosAchados = agenda.pesquisarNome(nome);
+        String nomeCompleto = ConsoleUIHelper.askSimpleInput("Informe o nome(completo ou não) do contato para adicionar um telefone.").toUpperCase();
+        List<Contato> contatosAchados = agenda.pesquisarNome(nomeCompleto);
         if (contatosAchados.size() == 0){
-            ConsoleUIHelper.drawWithRightPadding("Nenhum contato foi encontrado!" , 10, '#');
+            System.out.println("Contato não encontrado.");
+            ConsoleUIHelper.drawLine(width);
+            ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu");
+            return;
         }
-        List<String> ids = new ArrayList<>();
-        for (int i = 0; i <= contatosAchados.size(); i++) {
-            if (i < contatosAchados.size()) {
-                System.out.println("ID: " + (i + 1) + " " + contatosAchados.get(i) + "\n");
-                ids.add("" + i);
-                continue;
-            }
-            int id;
-            try {
-                id = ConsoleUIHelper.askNumberInt("Digite o ID do contato") - 1;
-            } catch (InputMismatchException e){
-                System.out.println("Informe apenas numeros inteiros.");
-                i--;
-                continue;
-            }
-            if (ids.contains("" + id)) {
-                contato = contatosAchados.remove(id);
-            } else {
-                System.out.println("ID inexistente.");
-            }
-        }
+        contato = InputHelper.getContatoPesquisado(contatosAchados);
         for (int i = 0; i < agenda.getContatos().size(); i++) {
             if (agenda.getContatos().get(i).equals(contato)) {
                 telefones = cadastraTelefones();
@@ -371,7 +354,6 @@ public class AgendaUI {
         ConsoleUIHelper.drawLine(width);
         ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu");
         System.out.println();
-
     }
 
     public void pesquisarContatos() {
