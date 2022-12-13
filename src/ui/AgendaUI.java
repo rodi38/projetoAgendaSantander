@@ -196,7 +196,7 @@ public class AgendaUI {
 
     public void listarTelefones(String contato) {
         ConsoleUIHelper.drawHeader("TELEFONES", width);
-        System.out.println(agenda.printTelefones(contato));
+        System.out.println(agenda.printTelefoneBasico(contato));
     }
 
     public void listarEnderecos() {
