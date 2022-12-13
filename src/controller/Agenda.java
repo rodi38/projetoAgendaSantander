@@ -249,6 +249,53 @@ public class Agenda {
         return dados.toString();
     }
 
+    public String printEnderecosBasico(String nomeContato){
+        List<Endereco> enderecos = new ArrayList<>();
+        Contato contato = null;
+        List<Contato> contatosAchados = this.pesquisarNome(nomeContato);
+        List<String> ids = new ArrayList<>();
+        if (contatosAchados.size() > 1){
+            System.out.printf("Foi encontrado mais de um contato em sua pesquisa por '%s', qual deles você estava buscando?", nomeContato);
+            for (int i = 0; i <= contatosAchados.size(); i++) {
+                if (i < contatosAchados.size()) {
+                    System.out.println("ID: " + (i + 1) + " " + contatosAchados.get(i) + "\n");
+                    ids.add(""+i);
+                    continue;
+                }
+                int id = ConsoleUIHelper.askNumberInt("Digite o ID do contato") - 1;
+                if (ids.contains(""+id)) {
+                    contato = contatosAchados.remove(id);
+                }else {
+                    System.out.println("ID inexistente.");
+                }
+            }
+        }
+
+        StringBuilder dados = new StringBuilder();
+        for (int i = 0; i < this.getContatos().size(); i++) {
+            if (this.getContatos().get(i).equals(contato)) {
+                dados.append(contatos.get(i).getNomeCompleto());
+                enderecos = contatos.get(i).getEnderecos();
+                if (enderecos.size() > 0) {
+                    dados.append("\n");
+                    dados.append("Endereços: \n");
+                    for (int j = 0; j < enderecos.size(); j++) {
+                        dados.append("\t").append(enderecos.get(j));
+                        if ((j < enderecos.size()-1)){
+                            dados.append("\n");
+                        }
+                    }
+                } else {
+                    dados.append("\nContato sem endereços!");
+                }
+                dados.append("\n");
+                dados.append("#".repeat(120));
+                dados.append("\n");
+            }
+        }
+        return dados.toString();
+    }
+
     public void removerTodosOsContatos() {
         contatos = new ArrayList<>();
     }

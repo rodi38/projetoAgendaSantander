@@ -189,14 +189,14 @@ public class AgendaUI {
         }
     }
 
-    public void listarTelefones(String contato) {
+    public void listarTelefones(String nomeContato) {
         ConsoleUIHelper.drawHeader("TELEFONES", width);
-        System.out.println(agenda.printTelefoneBasico(contato));
+        System.out.println(agenda.printTelefoneBasico(nomeContato));
     }
 
-    public void listarEnderecos() {
+    public void listarEnderecos(String nomeContato) {
         ConsoleUIHelper.drawHeader("ENDEREÇOS", width);
-        System.out.println(agenda.printEnderecos());
+        System.out.println(agenda.printEnderecosBasico(nomeContato));
     }
     public void exibirInformacoesContato(String nome){
         List<Contato> contatoEncontrado = agenda.pesquisarNome(nome);
@@ -424,6 +424,9 @@ public class AgendaUI {
                     continua = ConsoleUIHelper.askConfirm("Deseja continuar no menu de pesquisa?", "Sim", "Não");
                 }
                 case "5" ->{
+                    listarEnderecos(nome);
+                }
+                case "6" ->{
                     continua = false;
                 }
                 default -> {

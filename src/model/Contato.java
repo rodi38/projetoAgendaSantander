@@ -106,8 +106,8 @@ public class Contato {
                 "Tipo de contato: " + tipoContato +
                 " | Nome: " + nome +
                 " | Sobre Nome: " + sobreNome +
-                " | Enderecos: " + enderecos +
-                " | Telefones: " + telefones;
+                "\nEnderecos: " + enderecos +
+                "\nTelefones: " + telefones;
     }
 
 }
