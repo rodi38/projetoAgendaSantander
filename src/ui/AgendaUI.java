@@ -271,8 +271,7 @@ public class AgendaUI {
             numero = ConsoleUIHelper.askSimpleInput("Digite o numero: ");
             telefones.add(new Telefone(tipoTelefone, ddd, numero));
         }
-
-
+        RNHelper.trataTelefone(agenda, telefones);
         return telefones;
     }
 
@@ -329,41 +328,23 @@ public class AgendaUI {
         int telefoneOption = ConsoleUIHelper.askChooseOption("Quer adicionar um ou mais Telefones?", "Sim", "Não");
         if (telefoneOption == 0) {
             telefones = cadastraTelefones();
-            for (int i = 0; i <telefones.size() ; i++) {
-                Telefone telefone = telefones.get(i);
-                for (int j = 0; j < agenda.getContatos().size(); j++) {
-                    if (agenda.getContatos().get(j).getTelefones().get(j).equals(telefone)){
-                        System.out.println("DDD e Numero já cadastrado em um telefone, tente outro.");
-                        telefones.remove(telefone);
-                        ConsoleUIHelper.drawLine(width);
-                    }
-                }
-            }
         }
         //agenda.getContatos().get(i).getTelefones().size()
         int enderecoOption = ConsoleUIHelper.askChooseOption("Quer adicionar um ou mais Endereços?", "Sim", "Não");
         if (enderecoOption == 0) {
             enderecos = cadastraEnderecos();
-            for (int i = 0; i <enderecos.size() ; i++) {
-                Endereco endereco = enderecos.get(i);
-                for (int j = 0; j < agenda.getContatos().size(); j++) {
-                    if (agenda.getContatos().get(j).getEnderecos().get(j).equals(endereco)){
-                        System.out.println("Cep e numero já cadastrados em um endereço, tente novamente.");
-                        enderecos.remove(endereco);
-                        ConsoleUIHelper.drawLine(width);
-                    }
-                }
-            }
+            RNHelper.trataEndereco(agenda, enderecos);
         }
         Contato contato = new Contato(tipoContato, nome, sobreNome, enderecos, telefones);
-        for (int i = 0; i < agenda.getContatos().size(); i++) {
+        RNHelper.trataContato(agenda, contato);
+        /*for (int i = 0; i < agenda.getContatos().size(); i++) {
             if (agenda.getContatos().get(i).equals(contato)) {
                 System.out.println("Usuario já cadastrado, tente novamente. ");
                 ConsoleUIHelper.drawLine(width);
                 ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu");
                 return;
             }
-        }
+        }*/
         agenda.adicionar(contato);
         System.out.println("Contato adicionado com sucesso!");
         ConsoleUIHelper.drawLine(width);
