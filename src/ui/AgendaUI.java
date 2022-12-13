@@ -204,9 +204,16 @@ public class AgendaUI {
     }
 
     public void listarTelefones() {
-        ConsoleUIHelper.drawHeader("TELEFONES", 150);
+        ConsoleUIHelper.drawHeader("TELEFONES", width);
         System.out.println(agenda.printTelefones());
     }
+
+    public void listarEnderecos() {
+        ConsoleUIHelper.drawHeader("ENDEREÇOS", width);
+        System.out.println(agenda.printEnderecos());
+    }
+
+
     public void adicionaEnderecosEmContatoExistente() {
         List<Endereco> enderecos = new ArrayList<>();
         Contato contato = null;
@@ -252,7 +259,6 @@ public class AgendaUI {
                 System.out.println("Tipo errado, digite apenas um numero positivo");
             }
         }
-
         for (int i = 0; i < telefoneQuantidade; i++) {
             TipoTelefone[] tipos = TipoTelefone.values();
             System.out.println("Digite o tipo de telefone: ");
