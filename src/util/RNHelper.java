@@ -12,9 +12,9 @@ public class RNHelper {
     public static void trataTelefone(Agenda agenda, List<Telefone> telefones){
         Telefone telefone = null;
         if (agenda.getContatos().size() == 0){
-            for (int j = 0; j <telefones.size() ; j++) {
+            for (int j = 0; j <telefones.size()-1 ; j++) {
                 telefone = telefones.get(j);
-                if (telefones.get(j+1).equals(telefone)){
+                if (telefones.contains(telefone)){
                     System.out.println("DDD e Numero já cadastrado em um telefone, tente outro.");
                     telefones.remove(telefone);
                     ConsoleUIHelper.drawLine(120);
@@ -48,7 +48,7 @@ public class RNHelper {
         if (agenda.getContatos().size() == 0){
             for (int j = 0; j <enderecos.size() ; j++) {
                 endereco = enderecos.get(j);
-                if (enderecos.get(j+1).equals(endereco)){
+                if (enderecos.contains(endereco)){
                     System.out.println("Cep e numero já cadastrados em um endereço, tente novamente.");
                     enderecos.remove(endereco);
                     ConsoleUIHelper.drawLine(120);
