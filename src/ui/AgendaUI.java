@@ -31,13 +31,8 @@ public class AgendaUI {
             System.out.println("3-Pesquisar contato");
             System.out.println("4-Excluir contato");
             System.out.println("5-Excluir todos contatos");
-            System.out.println("5-Listar todos os telefones de um contato.");
-            System.out.println("6-Adicionar um telefone a um contato existente.");
-            System.out.println("7-Adicionar um endereço a um contato  existente.");
-            System.out.println("8-Excluir todos os contatos");
-            System.out.println("9-Limpar a tela");
-            System.out.println("10-Remover telefone de um contato existente");
-            System.out.println("11-Sair");
+            System.out.println("6-Limpar a tela");
+            System.out.println("7-Sair");
             ConsoleUIHelper.drawLine(width);
             System.out.print("Opção escolhida: ");
             String opcao = scanner.nextLine();
@@ -59,16 +54,16 @@ public class AgendaUI {
                     excluirContato();
                     System.out.println();
                 }
-                case "8" -> {
+                case "5" -> {
                     excluirTodosOsContatos();
                     ConsoleUIHelper.drawLine(width);
                     System.out.println();
                 }
-                case "9" -> {
+                case "6" -> {
                     ConsoleUIHelper.clearScreen();
                 }
 
-                case "11" -> {
+                case "7" -> {
                     System.out.println("Saindo...");
                     continua = false;
                 }
@@ -408,7 +403,7 @@ public class AgendaUI {
             System.out.println("4- Listar todos os telefones do contato");
             System.out.println("5- Listar todos os endereços do contato");
 
-            System.out.println("9- Voltar ao menu principal");
+            System.out.println("6- Voltar ao menu principal");
             String opcao = ConsoleUIHelper.askSimpleInput("Opção: ").substring(0,1);
             switch (opcao) {
                 case "1" ->{
@@ -431,16 +426,6 @@ public class AgendaUI {
                 case "5" ->{
                     continua = false;
                 }
-                case "7" ->{
-                    continua = false;
-                }
-                case "8" ->{
-                    continua = false;
-                }
-                case "9" ->{
-                    continua = false;
-                }
-
                 default -> {
                     System.out.println("Opção inválida.");
                     continua = ConsoleUIHelper.askConfirm("Deseja continuar no menu de pesquisa?", "Sim", "Não");
