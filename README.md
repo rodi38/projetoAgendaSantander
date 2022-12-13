@@ -24,12 +24,14 @@
   - [X] f. Adicionar um telefone a um contato<br/>
   - [X] g. Adicionar um endereço a um contato<br/>
   - [X] h. Remover um telefone de um contato da agenda<br/>
-  - [ ] i. Remover um endereço de um contato da agenda <br/>
-  - [ ] j. Exibir todas as informações de um contato da agenda<br/>
+  - [X] i. Remover um endereço de um contato da agenda <br/>
+  - [X] j. Exibir todas as informações de um contato da agenda<br/>
   - [X] k. Listar todos os telefones de um contato da agenda<br/>
-  - [ ] l. Listar todos os endereços de um contato da agenda<br/>
-  - [ ] m. Exibir todas as informações de um telefone de um contato da agenda<br/>
-  - [ ] n. Exibir todas as informações de um endereço de um contato da agenda<br/>
+  - [X] l. Listar todos os endereços de um contato da agenda<br/>
+  - [X] m. Exibir todas as informações de um telefone de um contato da agenda<br/>
+  - [X] n. Exibir todas as informações de um endereço de um contato da agenda<br/>
+  
+  O que falta? formatar as exibições e listagem.
 
 <h3>Ações adicionais que podem ser incluídas na Agenda como um bônus: </h3> <br/>
 
