@@ -6,6 +6,7 @@ import util.ConsoleUIHelper;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 /*
 implements Serializable 
@@ -24,6 +25,8 @@ public class Agenda {
 
     public void adicionar(Contato contato) {
         contatos.add(contato);
+
+
     }
     public void excluir(Contato contato){
         contatos.remove(contato);
@@ -67,8 +70,7 @@ public class Agenda {
         }
         StringBuilder dados = new StringBuilder();
         for (int i = 0; i < contatos.size(); i++) {
-            dados.append(contatos.get(i).getNomeCompleto().toUpperCase()).append(" | Tipo: ");
-            dados.append(contatos.get(i).getTipoContato());
+            dados.append(contatos.get(i).getNomeCompleto().toUpperCase());
             var telefones = contatos.get(i).getTelefones();
             var enderecos = contatos.get(i).getEnderecos();
             if (telefones.size() > 0) {
@@ -95,6 +97,16 @@ public class Agenda {
             } else {
                 dados.append("\nContato sem endereços!");
             }
+            dados.append("\n");
+            dados.append("#".repeat(120));
+            dados.append("\n");
+        }
+        return dados.toString();
+    }
+    public String listarTodosContatos() {
+        StringBuilder dados = new StringBuilder();
+        for (int i = 0; i < contatos.size(); i++) {
+            dados.append(contatos.get(i).getNomeCompleto().toUpperCase());
             dados.append("\n");
             dados.append("#".repeat(120));
             dados.append("\n");
