@@ -9,6 +9,7 @@ import model.Endereco;
 import model.Telefone;
 import util.ConsoleUIHelper;
 import util.InputHelper;
+import util.RNHelper;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -178,6 +179,7 @@ public class AgendaUI {
         for (int i = 0; i < agenda.getContatos().size(); i++) {
             if (agenda.getContatos().get(i).equals(contato)) {
                 telefones = cadastraTelefones();
+                RNHelper.trataTelefone(agenda, telefones);
                 agenda.getContatos().get(i).setTelefones(telefones);
             }
         }
