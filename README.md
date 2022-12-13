@@ -11,8 +11,8 @@
 <hr>
 
   - [x] Um contato pode possuir múltiplos endereços.  <br/>
-  - [ ] O armazenamento de telefones deve permitir incluir separadamente as informações de DDD e número.  <br/>
-  - [ ] O armazenamento de endereços deve permitir incluir separamente as informações de CEP, logradouro, número, cidade e estado. <br/>
+  - [X] O armazenamento de telefones deve permitir incluir separadamente as informações de DDD e número.  <br/>
+  - [X] O armazenamento de endereços deve permitir incluir separamente as informações de CEP, logradouro, número, cidade e estado. <br/>
 
 <h3>O sistema deve permitir a interação com o usuário com as seguintes ações: </h3>  <br/>
 
