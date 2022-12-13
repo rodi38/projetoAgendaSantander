@@ -71,12 +71,20 @@ public class Contato {
         this.tipoContato = tipoContato;
     }
 
-    @Override
+    /*@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Contato contato = (Contato) o;
         return nome.equals(contato.nome) && sobreNome.equals(contato.sobreNome) && tipoContato == contato.tipoContato && enderecos.equals(contato.enderecos) && telefones.equals(contato.telefones);
+    }*/
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Contato contato = (Contato) o;
+        return nome.equals(contato.nome) && sobreNome.equals(contato.sobreNome);
     }
 
     @Override

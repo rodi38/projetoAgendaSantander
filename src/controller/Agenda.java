@@ -4,9 +4,13 @@ import model.Contato;
 import model.Telefone;
 import util.ConsoleUIHelper;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-
+/*
+implements Serializable 
+ */
 public class Agenda {
     private List<Contato> contatos;
     private List<Telefone> telefones;
@@ -21,6 +25,8 @@ public class Agenda {
 
     public void adicionar(Contato contato) {
         contatos.add(contato);
+
+
     }
     public void excluir(Contato contato){
         contatos.remove(contato);
@@ -64,6 +70,55 @@ public class Agenda {
         }
         StringBuilder dados = new StringBuilder();
         for (int i = 0; i < contatos.size(); i++) {
+            dados.append(contatos.get(i).getNomeCompleto().toUpperCase());
+            var telefones = contatos.get(i).getTelefones();
+            var enderecos = contatos.get(i).getEnderecos();
+            if (telefones.size() > 0) {
+                dados.append("\n");
+                dados.append("Telefones: \n");
+                for (int j = 0; j < telefones.size(); j++) {
+                    dados.append("\t").append(telefones.get(j));
+                    if ((j < telefones.size()-1)){
+                        dados.append("\n");
+                    }
+                }
+            } else {
+                dados.append("\nContato sem telefones!");
+            }
+            if (enderecos.size() > 0) {
+                dados.append("\n");
+                dados.append("Endereços: \n");
+                for (int j = 0; j < enderecos.size(); j++) {
+                    dados.append("\t").append(enderecos.get(j));
+                    if ((j < enderecos.size()-1)){
+                        dados.append("\n");
+                    }
+                }
+            } else {
+                dados.append("\nContato sem endereços!");
+            }
+            dados.append("\n");
+            dados.append("#".repeat(120));
+            dados.append("\n");
+        }
+        return dados.toString();
+    }
+    public String listarTodosContatos() {
+        StringBuilder dados = new StringBuilder();
+        for (int i = 0; i < contatos.size(); i++) {
+            dados.append(contatos.get(i).getNomeCompleto().toUpperCase());
+            dados.append("\n");
+            dados.append("#".repeat(120));
+            dados.append("\n");
+        }
+        return dados.toString();
+    }
+    /*public String printAgenda() {
+        if (contatos.isEmpty()) {
+            return "Nenhum contato salvo na agenda!";
+        }
+        StringBuilder dados = new StringBuilder();
+        for (int i = 0; i < contatos.size(); i++) {
             dados.append(contatos.get(i).getNomeCompleto().toUpperCase()).append(" | Tipo: ");
             dados.append(contatos.get(i).getTipoContato());
             var telefones = contatos.get(i).getTelefones();
@@ -97,7 +152,8 @@ public class Agenda {
             dados.append("\n");
         }
         return dados.toString();
-    }
+    }*/
+
 
     public String printTelefones() {
         List<Telefone> telefones = new ArrayList<>();

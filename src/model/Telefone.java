@@ -56,7 +56,7 @@ public class Telefone {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Telefone telefone = (Telefone) o;
-        return tipoTelefone == telefone.tipoTelefone && ddd.equals(telefone.ddd) && numero.equals(telefone.numero);
+        return ddd.equals(telefone.ddd) && numero.equals(telefone.numero);
     }
 
     @Override
