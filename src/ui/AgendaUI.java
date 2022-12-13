@@ -106,11 +106,13 @@ public class AgendaUI {
         Contato contato = null;
         String nome = ConsoleUIHelper.askNoEmptyInput("Informe o nome do contato para remover.", 5);
         List<Contato> contatosAchados = agenda.pesquisarNome(nome);
-        List<String> ids = new ArrayList<>();
         if (contatosAchados.size() == 0) {
-            System.out.println("O contato não foi encontrado.");
+            System.out.println("Contato não encontrado.");
+            ConsoleUIHelper.drawLine(width);
+            ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu");
             return;
         }
+        List<String> ids = new ArrayList<>();
         for (int i = 0; i <= contatosAchados.size(); i++) {
             if (i < contatosAchados.size()) {
                 System.out.println("ID: " + (i + 1) + " " + contatosAchados.get(i) + "\n");
@@ -144,14 +146,20 @@ public class AgendaUI {
     public void excluirTodosOsContatos() {
         if (agenda.getContatos().size() == 0) {
             System.out.println("Não há contatos para exclusão.");
+            ConsoleUIHelper.drawLine(width);
+            ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu: ");
             return;
         }
         boolean confirmaExclusao = ConsoleUIHelper.askConfirm("Tem certeza que deseja remover todos os contatos?", "Sim", "Não");
         if (confirmaExclusao) {
             agenda.removerTodosOsContatos();
             System.out.println("Todos os contatos foram excluídos.");
+            ConsoleUIHelper.drawLine(width);
+            ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu: ");
         } else {
             System.out.println("Exclusão cancelada.");
+            ConsoleUIHelper.drawLine(width);
+            ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu: ");
         }
     }
 
@@ -230,6 +238,7 @@ public class AgendaUI {
 
     public List<Telefone> cadastraTelefones() {
         List<Telefone> telefones = new ArrayList<>();
+        Telefone telefone = null;
         int telefoneQuantidade;
         String ddd = "", numero = "";
         while (true) {
@@ -257,15 +266,14 @@ public class AgendaUI {
                 continue;
             }
             TipoTelefone tipoTelefone = tipos[tipoTelefoneOpcao];
-            System.out.print("Digite o DDD: ");
-            ddd = scanner.nextLine();
-            System.out.print("Digite o numero: ");
-            numero = scanner.nextLine();
-            telefones.add(new Telefone(tipoTelefone, ddd, numero));
-            System.out.println(" Telefone Cadastrado");
-            System.out.println();
-            System.out.println("-----------------------------");
-            System.out.println();
+            ddd = ConsoleUIHelper.askSimpleInput("Digite o DDD: ");
+            numero = ConsoleUIHelper.askSimpleInput("Digite o numero: ");
+            telefone = new Telefone(tipoTelefone, ddd, numero);
+        }
+        for (int i = 0; i < agenda.getContatos().size(); i++) {
+            if (agenda.getContatos().get(i).getTelefones().get(i).equals(telefone)){
+                System.out.println("Telefone já cadastrado!");
+            }
         }
         return telefones;
     }
