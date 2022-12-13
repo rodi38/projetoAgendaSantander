@@ -44,7 +44,7 @@
 
 <h2>Regras de Negócio:</h2> <br/>
 
-  - [ ] RN1: O sistema não deve permitir adicionar um contato com os mesmos dados de outro contato já existente. <br/>
-  - [ ] RN2: O sistema não teve permitir adicionar um telefone com os mesmos dados de outro telefone já existente no mesmo contato. <br/>
-  - [ ] RN3: O sistema não teve permitir adicionar um endereço com os mesmos dados de outro endereço já existente no mesmo contato. <br/>
+  - [X] RN1: O sistema não deve permitir adicionar um contato com os mesmos dados de outro contato já existente. <br/>
+  - [X] RN2: O sistema não teve permitir adicionar um telefone com os mesmos dados de outro telefone já existente no mesmo contato. <br/>
+  - [X] RN3: O sistema não teve permitir adicionar um endereço com os mesmos dados de outro endereço já existente no mesmo contato. <br/>
 
