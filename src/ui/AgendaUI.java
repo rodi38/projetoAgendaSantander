@@ -286,10 +286,14 @@ public class AgendaUI {
         TipoEndereco tipoEndereco = tipoEnderecos[tipoEnderecoOpcao];
 
         cep = ConsoleUIHelper.askSimpleInput("Digite o cep: ").trim().replaceAll(" ", "");
-        logradouro = ConsoleUIHelper.askSimpleInput("Digite o logradouro: ").trim();
-        numero = ConsoleUIHelper.askSimpleInput("Digite o numero da casa: ").trim().replaceAll(" ", "");
-        cidade = ConsoleUIHelper.askSimpleInput("Digite o nome da cidade: ").trim().replaceAll(" ", "");
-        estado = ConsoleUIHelper.askSimpleInput("Digite o nome do estado: ").trim().replaceAll(" ", "");
+        logradouro = ConsoleUIHelper.askSimpleInput("Digite o logradouro: ").trim().toUpperCase();
+        numero = ConsoleUIHelper.askSimpleInput("Digite o numero da casa: ").trim().replaceAll(" ", "").toUpperCase();
+        cidade = ConsoleUIHelper.askSimpleInput("Digite o nome da cidade: ").trim().toUpperCase();
+        estado = ConsoleUIHelper.askSimpleInput("Digite o nome do estado: ").trim().toUpperCase();
+        boolean confirmaEnderecos = RNHelper.checaEndereco(cep, logradouro, numero, cidade, estado);
+        if (confirmaEnderecos){
+            return enderecos;
+        }
         enderecos.add(new Endereco(tipoEndereco, cep, logradouro, numero, cidade, estado));
         System.out.println("Endereço cadastrado com sucesso.");
         ConsoleUIHelper.drawLine(width);

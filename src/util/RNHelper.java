@@ -30,7 +30,24 @@ public class RNHelper {
             ConsoleUIHelper.drawLine(120);
             return true;
         }
-        //if (!(cep.matches("[0-9]")))
+        if (!(cep.matches("[0-9]*"))){
+            System.out.println("O cep só pode conter numeros, o cadastro de endereço falhou.");
+            ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu: ");
+            ConsoleUIHelper.drawLine(120);
+            return true;
+        }
+        if (numero.length() > 6){
+            System.out.println("O numero da residencia foi muito grande, o cadastro de endereço falhou.");
+            ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu: ");
+            ConsoleUIHelper.drawLine(120);
+            return true;
+        }
+        if (numero.contains("-/[]*\\")){
+            System.out.println("Foi identificado algum caractere especial no numero, o cadastro de endereço falhou.");
+            ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu: ");
+            ConsoleUIHelper.drawLine(120);
+            return true;
+        }
         return false;
     }
 
