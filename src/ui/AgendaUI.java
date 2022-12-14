@@ -126,7 +126,7 @@ public class AgendaUI {
         List<String> ids = new ArrayList<>();
         for (int i = 0; i <= contatosAchados.size(); i++) {
             if (i < contatosAchados.size()) {
-                System.out.println("ID: " + (i + 1) + " " + contatosAchados.get(i) + "\n");
+                System.out.println("ID: " + (i + 1) + " " + contatosAchados.get(i).getNomeCompleto() + "\n");
                 ids.add("" + (i));
                 continue;
             }
@@ -139,13 +139,16 @@ public class AgendaUI {
                 continue;
             }
             if (ids.contains("" + id)) {
-                boolean confirm = ConsoleUIHelper.askConfirm("Tem certeza que deseja remover este contato? \n" + contatosAchados.get(id), "Sim", "Não");
+                System.out.println("Tem certeza que deseja remover este contato?");
+                boolean confirm = ConsoleUIHelper.askConfirm(agenda.exibirTodasInfosContato(contatosAchados.get(id)), "Sim", "Não");
                 if (confirm) {
                     System.out.println("Confirmando...");
-                    System.out.printf("Contato %s \n Excluido com sucesso!", contatosAchados.get(id));
+                    System.out.printf("Contato \n %s \n Excluido com sucesso!", agenda.exibirTodasInfosContato(contatosAchados.get(id)));
                     contato = contatosAchados.remove(id);
+                    ConsoleUIHelper.askSimpleInput("Digite alguma coisa para retornar ao menu:");
                 } else {
-                    System.out.println("Exclusão cancelada. \nRetornando...");
+                    System.out.println("Exclusão cancelada. \n \nRetornando...");
+                    ConsoleUIHelper.drawLine(width);
                 }
             } else {
                 System.out.println("Indice do contato inexistente.");
