@@ -8,7 +8,42 @@ import model.Telefone;
 import java.util.List;
 
 public class RNHelper {
+    public static boolean checaNomeSobrenome(String nome, String sobreNome){
+        if (nome.isBlank() || sobreNome.isBlank()){
+            System.out.println("Nome ou sobrenome estão vazios, o cadastro falhou.");
+            ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu principal: ");
+            ConsoleUIHelper.drawLine(120);
+            return true;
+        }
+        if (!(nome.matches("[A-Z]*")) || !(sobreNome.matches("[A-Z]*"))){
+            System.out.println("Um nome ou sobrenome não pode receber nada que não seja letras, o cadastro falhou.");
+            ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu principal: ");
+            ConsoleUIHelper.drawLine(120);
+            return true;
+        }
+        return false;
+    }
 
+    public static int trataContato(Agenda agenda, Contato contato){
+        for (int i = 0; i < agenda.getContatos().size(); i++) {
+            if (agenda.getContatos().get(i).equals(contato)) {
+                System.out.println("Usuario já cadastrado, tente novamente. ");
+                ConsoleUIHelper.drawLine(120);
+                ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu");
+                return 1;
+            }
+        }
+        return 0;
+    }
+    public static int trataNomeCompleto(Agenda agenda, String nomeCompleto){
+        for (int i = 0; i < agenda.getContatos().size() ; i++) {
+            if (agenda.getContatos().get(i).getNomeCompleto().equals(nomeCompleto)){
+                System.out.printf("Contato %s já está cadastrado. %n", nomeCompleto);
+                return 1;
+            }
+        }
+        return 0;
+    }
     public static void trataTelefone(Agenda agenda, List<Telefone> telefones){
         Telefone telefone = null;
         if (agenda.getContatos().size() == 0){
@@ -44,45 +79,11 @@ public class RNHelper {
             }
         }
     }
-    public static int trataContato(Agenda agenda, Contato contato){
-        for (int i = 0; i < agenda.getContatos().size(); i++) {
-            if (agenda.getContatos().get(i).equals(contato)) {
-                System.out.println("Usuario já cadastrado, tente novamente. ");
-                ConsoleUIHelper.drawLine(120);
-                ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu");
-                return 1;
-            }
-        }
-        return 0;
-    }
-    public static int trataNomeCompleto(Agenda agenda, String nomeCompleto){
-        for (int i = 0; i < agenda.getContatos().size() ; i++) {
-            if (agenda.getContatos().get(i).getNomeCompleto().equals(nomeCompleto)){
-                System.out.printf("Contato %s já está cadastrado. %n", nomeCompleto);
-                return 1;
-            }
-        }
-        return 0;
-    }
-    public static boolean checaNomeSobrenome(String nome, String sobreNome){
-        if (nome.isBlank() || sobreNome.isBlank()){
-            System.out.println("Nome ou sobrenome estão vazios, o cadastro falhou.");
-            ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu principal: ");
-            ConsoleUIHelper.drawLine(120);
-            return true;
-        }
-        if (!(nome.matches("[A-Z]*")) || !(sobreNome.matches("[A-Z]*"))){
-            System.out.println("Um nome ou sobrenome não pode receber nada que não seja letras, o cadastro falhou.");
-            ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu principal: ");
-            ConsoleUIHelper.drawLine(120);
-            return true;
-        }
-        return false;
-    }
+
     public static void trataEndereco(Agenda agenda, List<Endereco> enderecos){
         Endereco endereco = null;
         if (agenda.getContatos().size() == 0){
-            for (int j = 0; j <enderecos.size() ; j++) {
+            for (int j = 0; j <enderecos.size()-1 ; j++) {
                 endereco = enderecos.get(j);
                 if (enderecos.contains(endereco)){
                     System.out.println("Cep e numero já cadastrados em um endereço, tente novamente.");

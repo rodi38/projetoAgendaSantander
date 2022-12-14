@@ -197,7 +197,7 @@ public class AgendaUI {
             System.out.println("1- Excluir telefone do contato");
             System.out.println("2- Excluir endereço do contato");
             System.out.println("3- Voltar ao menu de pesquisa");
-            String opcao = ConsoleUIHelper.askSimpleInput("Opção: ").substring(0, 1);
+            String opcao = ConsoleUIHelper.askSimpleInput("Opção: ");
             switch (opcao) {
                 case "1" -> {
                     removerTelefoneEmContatoExistente(contato);
@@ -250,7 +250,7 @@ public class AgendaUI {
         TipoEndereco tipoEndereco = tipoEnderecos[tipoEnderecoOpcao];
 
         cep = ConsoleUIHelper.askSimpleInput("Digite o cep: ").trim().replaceAll(" ", "");
-        logradouro = ConsoleUIHelper.askSimpleInput("Digite o logradouro: ").trim().replaceAll(" ", "");
+        logradouro = ConsoleUIHelper.askSimpleInput("Digite o logradouro: ").trim();
         numero = ConsoleUIHelper.askSimpleInput("Digite o numero da casa: ").trim().replaceAll(" ", "");
         cidade = ConsoleUIHelper.askSimpleInput("Digite o nome da cidade: ").trim().replaceAll(" ", "");
         estado = ConsoleUIHelper.askSimpleInput("Digite o nome do estado: ").trim().replaceAll(" ", "");
