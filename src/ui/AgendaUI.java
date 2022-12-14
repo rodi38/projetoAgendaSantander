@@ -294,7 +294,7 @@ public class AgendaUI {
                 tipoEnderecos[1].toString(), tipoEnderecos[2].toString(), tipoEnderecos[3].toString());
         TipoEndereco tipoEndereco = tipoEnderecos[tipoEnderecoOpcao];
 
-        cep = ConsoleUIHelper.askSimpleInput("Digite o cep: ").trim().replaceAll(" ", "");
+        cep = ConsoleUIHelper.askSimpleInput("Digite o cep(SEM O HÍFEN): ").trim().replaceAll(" ", "");
         logradouro = ConsoleUIHelper.askSimpleInput("Digite o logradouro: ").trim().toUpperCase();
         numero = ConsoleUIHelper.askSimpleInput("Digite o numero da casa: ").trim().replaceAll(" ", "").toUpperCase();
         cidade = ConsoleUIHelper.askSimpleInput("Digite o nome da cidade: ").trim().toUpperCase();
@@ -302,6 +302,10 @@ public class AgendaUI {
         boolean confirmaEnderecos = RNHelper.checaEndereco(cep, logradouro, numero, cidade, estado);
         if (confirmaEnderecos){
             return enderecos;
+        }
+        if (!cep.substring(0,8).contains("-")){
+            String res = cep.substring(0,5)  + "-"+ cep.substring(5);
+            cep = res;
         }
         enderecos.add(new Endereco(tipoEndereco, cep, logradouro, numero, cidade, estado));
         System.out.println("Endereço cadastrado com sucesso.");
@@ -384,10 +388,10 @@ public class AgendaUI {
         Contato contato = null;
         if (contatoEncontrado.size() > 1) {
             List<String> ids = new ArrayList<>();
-            System.out.printf("Foi encontrado mais de um contato em sua pesquisa por '%s', qual deles você estava buscando?", nome);
+            System.out.printf("Foi encontrado mais de um contato em sua pesquisa por '%s', qual deles você estava buscando? %n", nome);
             for (int i = 0; i <= contatoEncontrado.size(); i++) {
                 if (i < contatoEncontrado.size()) {
-                    System.out.println("ID: " + (i + 1) + " " + contatoEncontrado.get(i) + "\n");
+                    System.out.println("ID: " + (i + 1) + " " + contatoEncontrado.get(i).getNomeCompleto() + "\n");
                     ids.add("" + i);
                     continue;
                 }
@@ -413,9 +417,8 @@ public class AgendaUI {
             System.out.println("3- Adicionar endereços ao contato");
             System.out.println("4- Listar todos os telefones do contato");
             System.out.println("5- Listar todos os endereços do contato");
-
             System.out.println("6- Voltar ao menu principal");
-            String opcao = ConsoleUIHelper.askSimpleInput("Opção: ").substring(0, 1);
+            String opcao = ConsoleUIHelper.askSimpleInput("Opção: ");
             switch (opcao) {
                 case "1" -> {
                     exibirTodasInformacoesContato(contato);

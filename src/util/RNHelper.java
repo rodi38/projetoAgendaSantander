@@ -25,12 +25,12 @@ public class RNHelper {
     }
     public static boolean checaEndereco(String cep, String logradouro ,String numero , String cidade, String estado){
         if (cep.isBlank() || numero.isBlank() || logradouro.isBlank() || cidade.isBlank() || estado.isBlank()){
-            System.out.println("Algum dos campos estava em branco, o cadastro de endereço falhou.");
+            System.out.println("Alguns dos campos estava em branco, o cadastro de endereço falhou.");
             ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu: ");
             ConsoleUIHelper.drawLine(120);
             return true;
         }
-        if (!(cep.matches("[0-9]*"))){
+        if (!(cep.matches("^\\d{8}$"))){
             System.out.println("O cep só pode conter numeros, o cadastro de endereço falhou.");
             ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu: ");
             ConsoleUIHelper.drawLine(120);
@@ -42,8 +42,17 @@ public class RNHelper {
             ConsoleUIHelper.drawLine(120);
             return true;
         }
+        if (logradouro.length() < 3){
+            System.out.println("Logradouro incorreto, o cadastro de endereço falhou.");
+        }
         if (numero.contains("-/[]*\\")){
             System.out.println("Foi identificado algum caractere especial no numero, o cadastro de endereço falhou.");
+            ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu: ");
+            ConsoleUIHelper.drawLine(120);
+            return true;
+        }
+        if (cidade.matches("[0-9]") || estado.matches("[0-9]")){
+            System.out.println("Foi identificado numeros na cidade ou estado, o cadastro de endereço falhou.");
             ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu: ");
             ConsoleUIHelper.drawLine(120);
             return true;
