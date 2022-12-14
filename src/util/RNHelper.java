@@ -59,8 +59,14 @@ public class RNHelper {
         }
         return false;
     }
-    public static boolean checaTelefone(String DDD, String numero){
-        if (!(DDD.matches("[0-9]*")) || !(numero.matches("[0-9]*"))){
+    public static boolean checaTelefone(String ddd, String numero){
+        if (ddd.isBlank() || numero.isBlank()){
+            System.out.println("Alguns dos campos estava em branco, o cadastro de telefone falhou.");
+            ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu: ");
+            ConsoleUIHelper.drawLine(120);
+            return true;
+        }
+        if (!(ddd.matches("[0-9]*")) || !(numero.matches("[0-9]*"))){
             System.out.println("DDD e numero só podem receber numeros, o cadastro de telefone falhou.");
             ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu: ");
             ConsoleUIHelper.drawLine(120);
