@@ -63,7 +63,7 @@ public class InputHelper {
         Endereco endereco = null;
         List<String> ids = new ArrayList<>();
         for (int i = 0; i <= contato.getEnderecos().size() ; i++) {
-            if (i < contato.getTelefones().size()){
+            if (i < contato.getEnderecos().size()){
                 System.out.println("Endereco " + (i + 1) + "º: " + contato.getEnderecos().get(i).getEnderecoCompleto());
                 ids.add("" + i);
                 continue;
