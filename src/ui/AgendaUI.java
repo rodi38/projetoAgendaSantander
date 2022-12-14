@@ -235,23 +235,11 @@ public class AgendaUI {
         for (int j = 0; j < tipos.length; j++) {
             System.out.println(j + 1 + " - " + tipos[j]);
         }
-        int tipoTelefoneOpcao;
-        while (true) {
-            try {
-                System.out.print("Opção: ");
-                tipoTelefoneOpcao = scanner.nextInt() - 1;
-                if (tipoTelefoneOpcao < 0 || tipoTelefoneOpcao >= tipos.length) {
-                    System.out.println("OPÇÃO INVALIDA");
-                }
-                break;
-            } catch (InputMismatchException e) {
-                System.out.println("Digite uma das opções");
-            }
-        }
+        int tipoTelefoneOpcao = ConsoleUIHelper.askChooseOption("Opção: ", tipos[0].toString(), tipos[1].toString(), tipos[2].toString());
         TipoTelefone tipoTelefone = tipos[tipoTelefoneOpcao];
 
-        ddd = ConsoleUIHelper.askSimpleInput("Digite o DDD: ");
-        numero = ConsoleUIHelper.askSimpleInput("Digite o numero: ");
+        ddd = ConsoleUIHelper.askSimpleInput("Digite o DDD: ").trim().replaceAll(" ", "");;
+        numero = ConsoleUIHelper.askSimpleInput("Digite o numero: ").trim().replaceAll(" ", "");;
         telefones.add(new Telefone(tipoTelefone, ddd, numero));
         RNHelper.trataTelefone(agenda, telefones);
         return telefones;
@@ -265,26 +253,15 @@ public class AgendaUI {
         for (int j = 0; j < tipoEnderecos.length; j++) {
             System.out.println(j + 1 + " - " + tipoEnderecos[j]);
         }
-        int tipoEnderecoOpcao;
-        while (true) {
-            try {
-                tipoEnderecoOpcao = scanner.nextInt() - 1;
-                if (tipoEnderecoOpcao < 0 || tipoEnderecoOpcao >= tipoEnderecos.length) {
-                    System.out.println("OPÇÃO INVALIDA");
-                }
-                break;
-            } catch (InputMismatchException e) {
-                System.out.println("Digite uma das opções");
-            }
-        }
-
+        int tipoEnderecoOpcao = ConsoleUIHelper.askChooseOption("Opção: ", tipoEnderecos[0].toString(),
+                tipoEnderecos[1].toString(), tipoEnderecos[2].toString());
         TipoEndereco tipoEndereco = tipoEnderecos[tipoEnderecoOpcao];
 
-        cep = ConsoleUIHelper.askSimpleInput("Digite o cep: ");
-        logradouro = ConsoleUIHelper.askSimpleInput("Digite o logradouro: ");
-        numero = ConsoleUIHelper.askSimpleInput("Digite o numero da casa: ");
-        cidade = ConsoleUIHelper.askSimpleInput("Digite o nome da cidade: ");
-        estado = ConsoleUIHelper.askSimpleInput("Digite o nome do estado: ");
+        cep = ConsoleUIHelper.askSimpleInput("Digite o cep: ").trim().replaceAll(" ", "");
+        logradouro = ConsoleUIHelper.askSimpleInput("Digite o logradouro: ").trim().replaceAll(" ", "");
+        numero = ConsoleUIHelper.askSimpleInput("Digite o numero da casa: ").trim().replaceAll(" ", "");
+        cidade = ConsoleUIHelper.askSimpleInput("Digite o nome da cidade: ").trim().replaceAll(" ", "");
+        estado = ConsoleUIHelper.askSimpleInput("Digite o nome do estado: ").trim().replaceAll(" ", "");
         enderecos.add(new Endereco(tipoEndereco, cep, logradouro, numero, cidade, estado));
         System.out.println("Endereço cadastrado com sucesso.");
         ConsoleUIHelper.drawLine(width);
