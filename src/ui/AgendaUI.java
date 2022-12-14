@@ -278,10 +278,8 @@ public class AgendaUI {
             ConsoleUIHelper.drawLine(width);
             return;
         }
-        if (nome.isBlank() || sobreNome.isBlank()){
-            System.out.println("Nome ou sobrenome estão vazios, o cadastro falhou.");
-            ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu principal: ");
-            ConsoleUIHelper.drawLine(width);
+        boolean checaNomeSobrenome = RNHelper.checaNomeSobrenome(nome, sobreNome);
+        if (checaNomeSobrenome){
             return;
         }
         int telefoneOption = ConsoleUIHelper.askChooseOption("Quer adicionar um Telefone?", "Sim", "Não");

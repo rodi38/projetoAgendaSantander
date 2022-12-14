@@ -64,6 +64,21 @@ public class RNHelper {
         }
         return 0;
     }
+    public static boolean checaNomeSobrenome(String nome, String sobreNome){
+        if (nome.isBlank() || sobreNome.isBlank()){
+            System.out.println("Nome ou sobrenome estão vazios, o cadastro falhou.");
+            ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu principal: ");
+            ConsoleUIHelper.drawLine(120);
+            return true;
+        }
+        if (!(nome.matches("[A-Z]*")) || !(sobreNome.matches("[A-Z]*"))){
+            System.out.println("Um nome ou sobrenome não pode receber nada que não seja letras, o cadastro falhou.");
+            ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu principal: ");
+            ConsoleUIHelper.drawLine(120);
+            return true;
+        }
+        return false;
+    }
     public static void trataEndereco(Agenda agenda, List<Endereco> enderecos){
         Endereco endereco = null;
         if (agenda.getContatos().size() == 0){
