@@ -179,6 +179,9 @@ public class AgendaUI {
         for (int i = 0; i < agenda.getContatos().size(); i++) {
             if (agenda.getContatos().get(i).equals(contato)) {
                 enderecos = cadastraEndereco();
+                if (enderecos == null){
+                    return;
+                }
                 agenda.getContatos().get(i).setEnderecos(enderecos);
             }
         }
@@ -189,6 +192,9 @@ public class AgendaUI {
         for (int i = 0; i < agenda.getContatos().size(); i++) {
             if (agenda.getContatos().get(i).equals(contato)) {
                 telefones = cadastraTelefone();
+                if (telefones == null){
+                    return;
+                }
                 agenda.getContatos().get(i).setTelefones(telefones);
             }
         }
@@ -269,9 +275,12 @@ public class AgendaUI {
         TipoTelefone[] tipos = TipoTelefone.values();
         int tipoTelefoneOpcao = ConsoleUIHelper.askChooseOption("Digite o tipo de telefone: ", tipos[0].toString(), tipos[1].toString(), tipos[2].toString());
         TipoTelefone tipoTelefone = tipos[tipoTelefoneOpcao];
-
         ddd = ConsoleUIHelper.askSimpleInput("Digite o DDD: ").trim().replaceAll(" ", "");
         numero = ConsoleUIHelper.askSimpleInput("Digite o numero: ").trim().replaceAll(" ", "");
+        boolean confirmaTelefone = RNHelper.checaTelefone(ddd, numero);
+        if (confirmaTelefone){
+            return telefones;
+        }
         telefones.add(new Telefone(tipoTelefone, ddd, numero));
         RNHelper.trataTelefone(agenda, telefones);
         return telefones;

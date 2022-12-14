@@ -50,7 +50,15 @@ public class RNHelper {
         }
         return false;
     }
-
+    public static boolean checaTelefone(String DDD, String numero){
+        if (!(DDD.matches("[0-9]*")) || !(numero.matches("[0-9]*"))){
+            System.out.println("DDD e numero só podem receber numeros, o cadastro de telefone falhou.");
+            ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu: ");
+            ConsoleUIHelper.drawLine(120);
+            return true;
+        }
+        return false;
+    }
     public static int trataContato(Agenda agenda, Contato contato){
         for (int i = 0; i < agenda.getContatos().size(); i++) {
             if (agenda.getContatos().get(i).equals(contato)) {
