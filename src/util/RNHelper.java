@@ -55,6 +55,15 @@ public class RNHelper {
         }
         return 0;
     }
+    public static int trataNomeCompleto(Agenda agenda, String nomeCompleto){
+        for (int i = 0; i < agenda.getContatos().size() ; i++) {
+            if (agenda.getContatos().get(i).getNomeCompleto().equals(nomeCompleto)){
+                System.out.printf("Contato %s já está cadastrado. %n", nomeCompleto);
+                return 1;
+            }
+        }
+        return 0;
+    }
     public static void trataEndereco(Agenda agenda, List<Endereco> enderecos){
         Endereco endereco = null;
         if (agenda.getContatos().size() == 0){

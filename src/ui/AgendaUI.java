@@ -148,7 +148,7 @@ public class AgendaUI {
         List<Telefone> telefones = new ArrayList<>();
         for (int i = 0; i < agenda.getContatos().size(); i++) {
             if (agenda.getContatos().get(i).equals(contato)) {
-                telefones = cadastraTelefones();
+                telefones = cadastraTelefone();
                 agenda.getContatos().get(i).setTelefones(telefones);
             }
         }
@@ -221,21 +221,17 @@ public class AgendaUI {
         List<Endereco> enderecos = new ArrayList<>();
         for (int i = 0; i < agenda.getContatos().size(); i++) {
             if (agenda.getContatos().get(i).equals(contato)) {
-                enderecos = cadastraEnderecos();
+                enderecos = cadastraEndereco();
                 agenda.getContatos().get(i).setEnderecos(enderecos);
             }
         }
     }
 
-    public List<Telefone> cadastraTelefones() {
+    public List<Telefone> cadastraTelefone() {
         List<Telefone> telefones = new ArrayList<>();
         String ddd = "", numero = "";
         TipoTelefone[] tipos = TipoTelefone.values();
-        System.out.println("Digite o tipo de telefone: ");
-        for (int j = 0; j < tipos.length; j++) {
-            System.out.println(j + 1 + " - " + tipos[j]);
-        }
-        int tipoTelefoneOpcao = ConsoleUIHelper.askChooseOption("Opção: ", tipos[0].toString(), tipos[1].toString(), tipos[2].toString());
+        int tipoTelefoneOpcao = ConsoleUIHelper.askChooseOption("Digite o tipo de telefone: ", tipos[0].toString(), tipos[1].toString(), tipos[2].toString());
         TipoTelefone tipoTelefone = tipos[tipoTelefoneOpcao];
 
         ddd = ConsoleUIHelper.askSimpleInput("Digite o DDD: ").trim().replaceAll(" ", "");;
@@ -245,16 +241,12 @@ public class AgendaUI {
         return telefones;
     }
 
-    public List<Endereco> cadastraEnderecos() {
+    public List<Endereco> cadastraEndereco() {
         List<Endereco> enderecos = new ArrayList<>();
         String cep = "", logradouro = "", numero = "", cidade = "", estado = "";
         TipoEndereco[] tipoEnderecos = TipoEndereco.values();
-        System.out.println("Digite o tipo de Endereco de acordo com o indice: ");
-        for (int j = 0; j < tipoEnderecos.length; j++) {
-            System.out.println(j + 1 + " - " + tipoEnderecos[j]);
-        }
-        int tipoEnderecoOpcao = ConsoleUIHelper.askChooseOption("Opção: ", tipoEnderecos[0].toString(),
-                tipoEnderecos[1].toString(), tipoEnderecos[2].toString());
+        int tipoEnderecoOpcao = ConsoleUIHelper.askChooseOption("Digite o tipo de Endereço: ", tipoEnderecos[0].toString(),
+                tipoEnderecos[1].toString(), tipoEnderecos[2].toString(), tipoEnderecos[3].toString());
         TipoEndereco tipoEndereco = tipoEnderecos[tipoEnderecoOpcao];
 
         cep = ConsoleUIHelper.askSimpleInput("Digite o cep: ").trim().replaceAll(" ", "");
@@ -273,18 +265,33 @@ public class AgendaUI {
         List<Telefone> telefones = new ArrayList<>();
         List<Endereco> enderecos = new ArrayList<>();
         int tipoContatoOption = ConsoleUIHelper.askChooseOption("Qual tipo de contato deseja cadastrar",
-                "Pessoal", "Comercial");
+                "Pessoal", "Profissional");
         TipoContato tipoContato = TipoContato.values()[tipoContatoOption];
+
         String nome = ConsoleUIHelper.askSimpleInput("Digite o nome do contato").toUpperCase();
         String sobreNome = ConsoleUIHelper.askSimpleInput("Digite o sobrenome do contato").toUpperCase();
+
+        String nomeCompleto = nome + " " + sobreNome;
+        int confirmaNomeCompleto = RNHelper.trataNomeCompleto(agenda, nomeCompleto);
+        if (confirmaNomeCompleto == 1){
+            ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu principal: ");
+            ConsoleUIHelper.drawLine(width);
+            return;
+        }
+        if (nome.isBlank() || sobreNome.isBlank()){
+            System.out.println("Nome ou sobrenome estão vazios, o cadastro falhou.");
+            ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu principal: ");
+            ConsoleUIHelper.drawLine(width);
+            return;
+        }
         int telefoneOption = ConsoleUIHelper.askChooseOption("Quer adicionar um Telefone?", "Sim", "Não");
         if (telefoneOption == 0) {
-            telefones = cadastraTelefones();
+            telefones = cadastraTelefone();
         }
         //agenda.getContatos().get(i).getTelefones().size()
         int enderecoOption = ConsoleUIHelper.askChooseOption("Quer adicionar um Endereço?", "Sim", "Não");
         if (enderecoOption == 0) {
-            enderecos = cadastraEnderecos();
+            enderecos = cadastraEndereco();
         }
         Contato contato = new Contato(tipoContato, nome, sobreNome, enderecos, telefones);
         int confirma = RNHelper.trataContato(agenda, contato);
