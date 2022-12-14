@@ -79,7 +79,8 @@ public class Agenda {
 
     public String exibirTodasInfosContato(Contato contato) {
         StringBuilder dados = new StringBuilder();
-        dados.append(contato.getNomeCompleto().toUpperCase());
+        dados.append("Nome: ").append(contato.getNome()).append("\n");
+        dados.append("Sobrenome: ").append(contato.getSobreNome()).append("\n");
         var telefones = contato.getTelefones();
         var enderecos = contato.getEnderecos();
         if (telefones.size() > 0) {
@@ -126,7 +127,8 @@ public class Agenda {
 
     public String exibirTelefonesContato(Contato contato) {
         StringBuilder dados = new StringBuilder();
-        dados.append(contato.getNomeCompleto()).append("\n");
+        dados.append("Nome: ").append(contato.getNome()).append("\n");
+        dados.append("Sobrenome: ").append(contato.getSobreNome()).append("\n");
         var telefones = contato.getTelefones();
         if (telefones.size() > 0) {
             dados.append("\n");
@@ -147,7 +149,7 @@ public class Agenda {
 
     public String listarTelefoneBasico(Contato contato) {
         StringBuilder dados = new StringBuilder();
-        dados.append(contato.getNomeCompleto()).append("\n");
+//        dados.append(contato.getNomeCompleto()).append("\n");
         var telefones = contato.getTelefones();
         if (telefones.size() > 0) {
             dados.append("\n");
@@ -166,6 +168,8 @@ public class Agenda {
 
     public String exibirEnderecosContato(Contato contato) {
         StringBuilder dados = new StringBuilder();
+        dados.append("Nome: ").append(contato.getNome()).append("\n");
+        dados.append("Sobrenome: ").append(contato.getSobreNome()).append("\n");
         var enderecos = contato.getEnderecos();
         if (enderecos.size() > 0) {
             dados.append("\n");

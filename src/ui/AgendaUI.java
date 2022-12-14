@@ -77,6 +77,36 @@ public class AgendaUI {
         }
     }
 
+    public void removerEnderecoEmContatoExistente(Contato contato) {
+        if (contato.getEnderecos().size() == 0) {
+            System.out.println("O contato não tem endereço para ser removido.");
+            ConsoleUIHelper.drawLine(width);
+            ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu");
+            return;
+        }
+        Endereco endereco = InputHelper.getEnderecoContato(contato);
+        for (int i = 0; i < agenda.getContatos().size(); i++) {
+            if (agenda.getContatos().get(i).getEnderecos().get(i).equals(endereco)) {
+                agenda.getContatos().get(i).getEnderecos().remove(endereco);
+            }
+        }
+    }
+
+    public void removerTelefoneEmContatoExistente(Contato contato) {
+        if (contato.getTelefones().size() == 0) {
+            System.out.println("O contato não tem telefone para ser removido.");
+            ConsoleUIHelper.drawLine(width);
+            ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu");
+            return;
+        }
+        Telefone telefone = InputHelper.getTelefoneContato(contato);
+        for (int i = 0; i < agenda.getContatos().size(); i++) {
+            if (agenda.getContatos().get(i).getTelefones().get(i).equals(telefone)) {
+                agenda.getContatos().get(i).getTelefones().remove(telefone);
+            }
+        }
+    }
+
     public void excluirContato() {
         Contato contato = null;
         String nome = ConsoleUIHelper.askSimpleInput("Informe o nome do contato para remover.").toUpperCase();
@@ -144,6 +174,16 @@ public class AgendaUI {
         }
     }
 
+    public void adicionaEnderecosEmContatoExistente(Contato contato) {
+        List<Endereco> enderecos = new ArrayList<>();
+        for (int i = 0; i < agenda.getContatos().size(); i++) {
+            if (agenda.getContatos().get(i).equals(contato)) {
+                enderecos = cadastraEndereco();
+                agenda.getContatos().get(i).setEnderecos(enderecos);
+            }
+        }
+    }
+
     public void adicionarTelefoneEmContatoExistente(Contato contato) {
         List<Telefone> telefones = new ArrayList<>();
         for (int i = 0; i < agenda.getContatos().size(); i++) {
@@ -154,27 +194,16 @@ public class AgendaUI {
         }
     }
 
-    public void removerTelefoneEmContatoExistente(Contato contato) {
-        Telefone telefone = InputHelper.getTelefoneContato(contato);
-        for (int i = 0; i < agenda.getContatos().size(); i++) {
-            if (agenda.getContatos().get(i).getTelefones().get(i).equals(telefone)) {
-                agenda.getContatos().get(i).getTelefones().remove(telefone);
-            }
-        }
-    }
-
-    public void removerEnderecoEmContatoExistente(Contato contato) {
-        Endereco endereco = InputHelper.getEnderecoContato(contato);
-        for (int i = 0; i < agenda.getContatos().size(); i++) {
-            if (agenda.getContatos().get(i).getEnderecos().get(i).equals(endereco)) {
-                agenda.getContatos().get(i).getEnderecos().remove(endereco);
-            }
-        }
-    }
-
     public void listarTodosTelefonesContato(Contato contato) {
         ConsoleUIHelper.drawHeader("TELEFONES", width);
         System.out.println(agenda.listarTelefoneBasico(contato));
+        ConsoleUIHelper.drawLine(width);
+        ConsoleUIHelper.askSimpleInput("Digite alguma coisa para retornar ao menu de pesquisa: ");
+        ConsoleUIHelper.drawLine(width);
+    }
+    public void exibirTodosTelefonesContato(Contato contato) {
+        ConsoleUIHelper.drawHeader("TELEFONES", width);
+        System.out.println(agenda.exibirTelefonesContato(contato));
         ConsoleUIHelper.drawLine(width);
         ConsoleUIHelper.askSimpleInput("Digite alguma coisa para retornar ao menu de pesquisa: ");
         ConsoleUIHelper.drawLine(width);
@@ -187,16 +216,27 @@ public class AgendaUI {
         ConsoleUIHelper.askSimpleInput("Digite alguma coisa para retornar ao menu de pesquisa: ");
         ConsoleUIHelper.drawLine(width);
     }
+    public void exibirTodosEnderecosContato(Contato contato) {
+        ConsoleUIHelper.drawHeader("ENDEREÇOS", width);
+        System.out.println(agenda.exibirEnderecosContato(contato));
+        ConsoleUIHelper.drawLine(width);
+        ConsoleUIHelper.askSimpleInput("Digite alguma coisa para retornar ao menu de pesquisa: ");
+        ConsoleUIHelper.drawLine(width);
+    }
 
-    public void exibirInformacoesContato(Contato contato) {
+
+    public void exibirTodasInformacoesContato(Contato contato) {
         boolean continua = true;
         while (continua) {
+            ConsoleUIHelper.drawHeader("INFORMAÇÕES COMPLETAS DO CONTATO", width);
             System.out.println("Essas são todas as informações do seu contato: ");
-            System.out.println(contato);
+            System.out.println(agenda.exibirTodasInfosContato(contato));
             System.out.println("O que deseja fazer?");
             System.out.println("1- Excluir telefone do contato");
             System.out.println("2- Excluir endereço do contato");
-            System.out.println("3- Voltar ao menu de pesquisa");
+            System.out.println("3- Exibir Todas informações de Telefone contato");
+            System.out.println("4- Exibir Todas informações de Endereço do contato");
+            System.out.println("5- Voltar ao menu de pesquisa");
             String opcao = ConsoleUIHelper.askSimpleInput("Opção: ");
             switch (opcao) {
                 case "1" -> {
@@ -206,6 +246,12 @@ public class AgendaUI {
                     removerEnderecoEmContatoExistente(contato);
                 }
                 case "3" -> {
+                    exibirTodosTelefonesContato(contato);
+                }
+                case "4" -> {
+                    exibirTodosEnderecosContato(contato);
+                }
+                case "5" -> {
                     continua = false;
 
                 }
@@ -217,16 +263,6 @@ public class AgendaUI {
     }
 
 
-    public void adicionaEnderecosEmContatoExistente(Contato contato) {
-        List<Endereco> enderecos = new ArrayList<>();
-        for (int i = 0; i < agenda.getContatos().size(); i++) {
-            if (agenda.getContatos().get(i).equals(contato)) {
-                enderecos = cadastraEndereco();
-                agenda.getContatos().get(i).setEnderecos(enderecos);
-            }
-        }
-    }
-
     public List<Telefone> cadastraTelefone() {
         List<Telefone> telefones = new ArrayList<>();
         String ddd = "", numero = "";
@@ -234,8 +270,8 @@ public class AgendaUI {
         int tipoTelefoneOpcao = ConsoleUIHelper.askChooseOption("Digite o tipo de telefone: ", tipos[0].toString(), tipos[1].toString(), tipos[2].toString());
         TipoTelefone tipoTelefone = tipos[tipoTelefoneOpcao];
 
-        ddd = ConsoleUIHelper.askSimpleInput("Digite o DDD: ").trim().replaceAll(" ", "");;
-        numero = ConsoleUIHelper.askSimpleInput("Digite o numero: ").trim().replaceAll(" ", "");;
+        ddd = ConsoleUIHelper.askSimpleInput("Digite o DDD: ").trim().replaceAll(" ", "");
+        numero = ConsoleUIHelper.askSimpleInput("Digite o numero: ").trim().replaceAll(" ", "");
         telefones.add(new Telefone(tipoTelefone, ddd, numero));
         RNHelper.trataTelefone(agenda, telefones);
         return telefones;
@@ -304,10 +340,10 @@ public class AgendaUI {
 
     public void listarContatos() {
         if (agenda.getContatos().size() == 0) {
-            ConsoleUIHelper.drawLine(width);
             System.out.println("Nenhum contato salvo na agenda!");
             ConsoleUIHelper.drawLine(width);
             ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu");
+            System.out.println();
             return;
         }
         ConsoleUIHelper.drawHeader("AGENDA", width);
@@ -356,6 +392,7 @@ public class AgendaUI {
 
         boolean continua = true;
         while (continua) {
+            ConsoleUIHelper.drawLine(width);
             System.out.println(contato.getNomeCompleto());
             System.out.println("Contato encontrado, o que deseja fazer com ele?");
             System.out.println("1- Ver todas informações do contato");
@@ -368,7 +405,7 @@ public class AgendaUI {
             String opcao = ConsoleUIHelper.askSimpleInput("Opção: ").substring(0, 1);
             switch (opcao) {
                 case "1" -> {
-                    exibirInformacoesContato(contato);
+                    exibirTodasInformacoesContato(contato);
                     continua = ConsoleUIHelper.askConfirm("Deseja continuar no menu de pesquisa?", "Sim", "Não");
 
                 }

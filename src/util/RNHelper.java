@@ -23,6 +23,16 @@ public class RNHelper {
         }
         return false;
     }
+    public static boolean checaEndereco(String cep, String logradouro ,String numero , String cidade, String estado){
+        if (cep.isBlank() || numero.isBlank() || logradouro.isBlank() || cidade.isBlank() || estado.isBlank()){
+            System.out.println("Algum dos campos estava em branco, o cadastro de endereço falhou.");
+            ConsoleUIHelper.askSimpleInput("Digite qualquer coisa para retornar ao menu: ");
+            ConsoleUIHelper.drawLine(120);
+            return true;
+        }
+        //if (!(cep.matches("[0-9]")))
+        return false;
+    }
 
     public static int trataContato(Agenda agenda, Contato contato){
         for (int i = 0; i < agenda.getContatos().size(); i++) {
