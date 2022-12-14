@@ -1,6 +1,7 @@
 package util;
 
 import model.Contato;
+import model.Endereco;
 import model.Telefone;
 
 import java.util.ArrayList;
@@ -58,4 +59,30 @@ public class InputHelper {
         }
         return telefone;
     }
+    public static Endereco getEnderecoContato(Contato contato){
+        Endereco endereco = null;
+        List<String> ids = new ArrayList<>();
+        for (int i = 0; i <= contato.getEnderecos().size() ; i++) {
+            if (i < contato.getTelefones().size()){
+                System.out.println("Endereco " + (i + 1) + "º: " + contato.getEnderecos().get(i).getEnderecoCompleto());
+                ids.add("" + i);
+                continue;
+            }
+            int id;
+            try {
+                id = ConsoleUIHelper.askNumberInt("Digite o ID do Endereco: ") - 1;
+            } catch (InputMismatchException e){
+                System.out.println("Informe apenas numeros inteiros.");
+                i--;
+                continue;
+            }
+            if (ids.contains("" + id)) {
+                endereco = contato.getEnderecos().get(id);
+            } else {
+                System.out.println("ID inexistente.");
+            }
+        }
+        return endereco;
+    }
+
 }

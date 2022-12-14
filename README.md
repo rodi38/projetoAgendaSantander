@@ -11,8 +11,8 @@
 <hr>
 
   - [x] Um contato pode possuir múltiplos endereços.  <br/>
-  - [ ] O armazenamento de telefones deve permitir incluir separadamente as informações de DDD e número.  <br/>
-  - [ ] O armazenamento de endereços deve permitir incluir separamente as informações de CEP, logradouro, número, cidade e estado. <br/>
+  - [X] O armazenamento de telefones deve permitir incluir separadamente as informações de DDD e número.  <br/>
+  - [X] O armazenamento de endereços deve permitir incluir separamente as informações de CEP, logradouro, número, cidade e estado. <br/>
 
 <h3>O sistema deve permitir a interação com o usuário com as seguintes ações: </h3>  <br/>
 
@@ -24,12 +24,14 @@
   - [X] f. Adicionar um telefone a um contato<br/>
   - [X] g. Adicionar um endereço a um contato<br/>
   - [X] h. Remover um telefone de um contato da agenda<br/>
-  - [ ] i. Remover um endereço de um contato da agenda <br/>
-  - [ ] j. Exibir todas as informações de um contato da agenda<br/>
+  - [X] i. Remover um endereço de um contato da agenda <br/>
+  - [X] j. Exibir todas as informações de um contato da agenda<br/>
   - [X] k. Listar todos os telefones de um contato da agenda<br/>
-  - [ ] l. Listar todos os endereços de um contato da agenda<br/>
-  - [ ] m. Exibir todas as informações de um telefone de um contato da agenda<br/>
-  - [ ] n. Exibir todas as informações de um endereço de um contato da agenda<br/>
+  - [X] l. Listar todos os endereços de um contato da agenda<br/>
+  - [X] m. Exibir todas as informações de um telefone de um contato da agenda<br/>
+  - [X] n. Exibir todas as informações de um endereço de um contato da agenda<br/>
+  
+  O que falta? formatar as exibições e listagem.
 
 <h3>Ações adicionais que podem ser incluídas na Agenda como um bônus: </h3> <br/>
 
@@ -44,7 +46,7 @@
 
 <h2>Regras de Negócio:</h2> <br/>
 
-  - [ ] RN1: O sistema não deve permitir adicionar um contato com os mesmos dados de outro contato já existente. <br/>
-  - [ ] RN2: O sistema não teve permitir adicionar um telefone com os mesmos dados de outro telefone já existente no mesmo contato. <br/>
-  - [ ] RN3: O sistema não teve permitir adicionar um endereço com os mesmos dados de outro endereço já existente no mesmo contato. <br/>
+  - [X] RN1: O sistema não deve permitir adicionar um contato com os mesmos dados de outro contato já existente. <br/>
+  - [X] RN2: O sistema não teve permitir adicionar um telefone com os mesmos dados de outro telefone já existente no mesmo contato. <br/>
+  - [X] RN3: O sistema não teve permitir adicionar um endereço com os mesmos dados de outro endereço já existente no mesmo contato. <br/>
 
