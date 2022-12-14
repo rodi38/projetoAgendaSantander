@@ -39,10 +39,11 @@ public class ConsoleUIHelper {
         int choose;
         int cont = 0;
         do {
+
             try {
                 choose = sc.nextInt()-1;
                 cont++;
-                if (cont == 3){
+                if (cont >= 3){
                     System.out.printf("%n%s%n# : ", message);
                     for (int i = 0; i < options.length; i++) {
                         System.out.printf("%d - %s%n# : ", i+1, options[i]);
@@ -50,6 +51,16 @@ public class ConsoleUIHelper {
                     cont = 0;
                 }
             } catch (InputMismatchException e) {
+                System.out.println("Digite apenas uma das opções.");
+                cont++;
+                if (cont >= 6){
+                    System.out.printf("%n%s%n# : ", message);
+                    for (int i = 0; i < options.length; i++) {
+                        System.out.printf("%d - %s%n# : ", i+1, options[i]);
+                    }
+                    cont = 0;
+                }
+                sc.nextLine();
                 choose = -9;
             }
         } while (choose < 0 || choose >= options.length);
